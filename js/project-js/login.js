@@ -28,13 +28,20 @@ $(function(){
 			dataType:"text",
 			data:params,
 			success:function(data){
-				if (data=='Success')
+				if (data=='Wrong')
 				{
-					//跳转主页登陆成功
-					window.location.href="index.html"
+					alert('用户名或密码错误');
 					
 				}else{
-					alert('用户名或密码错误')
+					//var user=JSON.parse(data);
+					//console.log(user);
+					var userJson=data;
+					console.log(userJson);
+					//存储登陆成功的user的Json 字符串
+					saveLogin(userJson);
+					//跳转主页登陆成功
+					window.location.href="index.html";
+					
 				}
 
 			},
@@ -43,8 +50,13 @@ $(function(){
 			}
 		})
 	}
-
 	}	
+	function saveLogin(userJson){
+		var storage=window.localStorage;
+		storage.setItem("user",userJson);
+		console.log(userJson); 
+			 
+	}
 	$("#loginBtn").click(function(){
 		login();
 	});
