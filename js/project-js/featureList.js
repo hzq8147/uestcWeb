@@ -63,7 +63,7 @@ $(function(){
 			let menuLevelTwo = []
 			item.menuList.forEach((levelTwoItem,levelTwoIndex) => {
 				let menuLevelTwo = document.createElement('div')
-				menuLevelTwo.innerHTML = `<a href="${levelTwoItem.url}" target="mainFrame" >${levelTwoItem.name}</a>`
+				menuLevelTwo.innerHTML = `<a href="${levelTwoItem.url}" target="mainFrame" class="menuTwo">${levelTwoItem.name}</a>`
 				menuLevelTwo.setAttribute('menuIndex', index)
 				menuLevelTwo.setAttribute('levelTwoIndex', levelTwoIndex)
 				menuLevelTwo.setAttribute('name', 'menuLevelTwo')
@@ -76,9 +76,12 @@ $(function(){
 	}
 	function getIdentity(){
 		if (!window.localstorage){
+			
+		}else{
 			var storage=window.localStorage;
 			var user=JSON.parse(storage.getItem("user"));
 			return user.identity;
+			d
 		}
 	}
 	
