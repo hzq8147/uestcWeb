@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
+
+	<script type="text/javascript" src="../js/project-js/top.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
 </head>
 <body>
-	<h1 style="text-align: center;">教学评价管理系统</h1>
+	<style>
+		a:link, a:visited {
+		text-decoration: none;
+		color:black;
+		}
+
+		.topcenter{width:300px;margin: 0 auto;height: 15px}
+		
+		.topright ul{padding-top:15px; float:right; padding-right:12px;}
+		.topright ul li{float:left; padding-left:9px; padding-right:9px;}
+		.topright ul li:last-child{background:none;}
+		.topright ul li a{font-size:13px;}
+		.topright ul li a:hover{color:#ff0000;}
+		.topright ul li span{margin-top:1px;float:left;padding-right:3px;}
+		.topright ul{list-style: none;}
+	</style>
+
+    	<div class="topcenter">
+    	<h1>教学评价管理系统</h1>
+    </div>
+   
+	<div class="topright">    
+
+      <ul>
+    
+    <li><a  id="editPwd" >修改密码</a></li>
+    <li><span></span><a  id="editMsg">修改信息</a></li>
+   <!-- /course/public/ILoginOut -->
+    <li><a href="login.html"target="_parent" id="loginOut" >退出</a></li>
+    </ul>
+
 </body>
 </html>
