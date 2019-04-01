@@ -8,39 +8,39 @@
 	<title>系统登录</title>
 </head>
 <body>
+	<style>
+		
+	</style>
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 
 	<!--登录-->
-	<table width="300px">
-		<tr>
-			<td>用户名：</td>
-			<td>
-				<input  id="username"class="textInput"type="text"></input>
+	<div style="margin: 0 auto; background-color: lightblue;border:solid steelblue 2px;width: 400px;height: 300px；padding-bottom:10px;">
+	<table width="100%" align="center">
+	<tr>
+		<td align="right" width="30%">用户名：</td>
+		<td><input type="text" id="username" class="textInput" placeholder="请输入用户名"></td>
+	</tr>
+	<tr>
+		<td align="right" width="30%">密码：</td>
+			<td><input  id="password"class="textInput"type="password" placeholder="请输入密码"></input>
 			</td>
-		</tr>
-		<tr>
-			<td>密码：</td>
-			<td>
-				<input  id="password"class="textInput"type="password"></input>
-			</td>
-		</tr>
-		<tr>
-			<td>身份：</td>
-			<td>
-				<input type="radio" name="identity">普通教师 
+	</tr>
+	<tr>
+		<td align="right" width="30%" valign="top">身份：</td>
+			<td style="font-size: 12px">
+				<input type="radio" name="identity" font-size="10px">普通教师 
 				<input type="radio" name="identity">质量小组成员
 				<input type="radio" name="identity">质量小组组长
-				<input type="radio" name="identity">质量小组成员
+				<br/>
 				<input type="radio" name="identity">教务科
 				<input type="radio" name="identity">教学院长
-				
-				
-				
 			</td>
-		</tr>
-	</table>
-	<br>
-	<button id="loginBtn"class="loginBtn">登录</button>
+	</tr>
+	
+</table>
+<br>
+<div align="center" style="padding-bottom: 10px";><button  id="loginBtn"class="loginBtn" align="center" ">登录</button></div>
+	
 </body>
 
 </htm啊
