@@ -1,11 +1,12 @@
-const url="http://localhost:8080/uestcTMP";
+
+const url="http://101.132.37.10:8080/uestcTMP";
 $(function(){
 	var identity=getIdentity();
 	getList(identity);
-
+	
 	function getList (identity) {
 		var params={
-			'indentity':identity
+			'identity':identity
 		}
 		$.ajax({
 			type:'POST',
@@ -13,7 +14,7 @@ $(function(){
 			dataType:'text',
 			data:params,
 			success:function(data){
-				console.log(data);
+				//console.log(data);
 				var listData=JSON.parse(data);
 				createList(listData);
 			},
@@ -76,12 +77,10 @@ $(function(){
 	}
 	function getIdentity(){
 		if (!window.localstorage){
-			
-		}else{
 			var storage=window.localStorage;
 			var user=JSON.parse(storage.getItem("user"));
+			console.log(user.identity);
 			return user.identity;
-			d
 		}
 	}
 	
