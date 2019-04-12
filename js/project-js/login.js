@@ -6,8 +6,15 @@ $(function(){
 	//登录
 	var username=document.getElementById("username").value;
 	var password=document.getElementById("password").value;
+	
+	var identity;
+	
+	identity = $("input[name='identity']:checked").val();
+
+	
 	console.log("username:"+username);
 	console.log("password:"+password);
+	console.log("identity:"+identity);
 	if (username=="")
 	{
 		alert("用户名不能为空");
@@ -18,7 +25,8 @@ $(function(){
 		var actionUrl=url+"/login";
 		var userObj={
 			"username":username,
-			"password":password
+			"password":password,
+			"identity":identity
 		};
 		var params=JSON.stringify(userObj);
 		console.log(params);
@@ -28,14 +36,18 @@ $(function(){
 			dataType:"text",
 			data:params,
 			success:function(data){
-				if (data=='Wrong')
+				var getObj = JSON.parse(data);
+				if (getObj.errId=="0")
 				{
 					alert('用户名或密码错误');
 					
-				}else{
-					//var user=JSON.parse(data);
+				}
+				else if(getObj.errId=="-1"){
+					alert('身份不正确');
+				}
+				else{
 					//console.log(user);
-					var userJson=data;
+					var userJson=JSON.stringify(getObj.user);
 					console.log(userJson);
 					//存储登陆成功的user的Json 字符串
 					saveLogin(userJson);
