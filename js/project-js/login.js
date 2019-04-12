@@ -4,8 +4,8 @@ $(function(){
 	function login(){
 
 	//登录
-	var username=document.getElementById("username").value;
-	var password=document.getElementById("password").value;
+	var username=document.getElementById("loginUser").value;
+	var password=document.getElementById("loginPwd").value;
 	
 	var identity;
 	
