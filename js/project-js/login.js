@@ -65,6 +65,7 @@ $(function(){
 	}	
 	function saveLogin(userJson){
 		var storage=window.localStorage;
+		//userJson键值数组赋给user
 		storage.setItem("user",userJson);
 		console.log(userJson); 
 			 
