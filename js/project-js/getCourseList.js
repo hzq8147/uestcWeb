@@ -1,9 +1,9 @@
-const url="http://101.132.37.10:8080/uestcTMP";
 
+const url="http://101.132.37.10:8080/uestcTMP";
 $(function(){
 	
-	//var userId = getUserId();
-	getCourse("2");
+	var userId = getUserId();
+	getCourse(userId);
 	function getUserId(){
 		//！window防止浏览器不支持导致的报错
 		if (!window.localstorage){
@@ -26,18 +26,38 @@ $(function(){
 			data:params,
 			success:function(data){
 				var getObj = JSON.parse(data);
-				//console.log(user);
+				
 				var courseJson=JSON.stringify(getObj);
 				console.log(courseJson);
-				//获取数据
 				
+				showCourse(getObj);
 				}
-
-			
-			//error:function(xhr,errottext,errorstatus){
-			//	alert(xhr.status+" "+xhr.statusText);
-			//}
 		})
+		
+	}
+	function showCourse(courseList){
+		const table=document.getElementById('courses');
+		courseList.forEach((item,index) =>{
+			console.log("1");
+			let tr=document.createElement('tr');
+			tr.innerHTML="";
+			tr.innerHTML+=`<td>${item.name}</td>`;
+			tr.innerHTML+=`<td>${item.term}</td>`;
+			tr.innerHTML+=`<td>${item.jiangGaoScore}</td>`;
+			tr.innerHTML+=`<td>${item.jiaoAnScore}</td>`;
+			tr.innerHTML+=`<td>${item.zhongQiScore}</td>`;
+			tr.innerHTML+=`<td>${item.tingKeScore}</td>`;
+			tr.innerHTML+=`<td>${item.pingJiaoScore}</td>`;
+			tr.innerHTML+=`<td>${item.chuTiScore}</td>`;
+			tr.innerHTML+=`<td>${item.pingYueScore}</td>`;
+			tr.innerHTML+=`<td>${item.baoGaoScore}</td>`;
+			tr.innerHTML+=`<td>${item.totalScore}</td>`;
+			table.appendChild(tr);
+			
+
+
+		})
+		
 	}
 })
 	
