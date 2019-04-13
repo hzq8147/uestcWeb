@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
-
-	<script type="text/javascript" src="../js/project-js/top.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title></title>
+	<title>无标题文档</title>
+
+	<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script language="JavaScript" src="../js/lib-js/jquery.min.js"></script>
+	<script language="JavaScript" src="../js/lib-js/bootstrap.min.js"></script>
+	<link href="../css/uestcWeb.css" rel="stylesheet" type="text/css" />
+	<script src="../js/project-js/top.js"></script>
+
+	<script type="text/javascript">
+		$(function(){	
+		//顶部导航切换
+			$(".nav li a").click(function(){
+				$(".nav li a.selected").removeClass("selected")
+				$(this).addClass("selected");
+			});
+  			//    $("#editPwd").click(function()
+  			// {
+  			//   $("#editPwdm").modal('toggle');
+  			// })
+  
+   			$("#loginOut").click(function(){
+	   			console.log("访问方法成功");
+	   			$.ajax({
+		  			url:"/course/public/ILoginOut",
+		  			success:function(data){
+			  			if(data.success){
+				  			console.log(data);
+				  			window.parent.location.href="login.html";
+				  			window.parent.location.reload();				  
+			  			}
+		  			},
+		  			error:function(jqXHR, textStatus, errorThrown){
+			  			alert("退出失败");
+		  			}
+	  			})
+	 		})
+		})	 
+</script>
+	
+	
 </head>
 <body>
 	<style>
