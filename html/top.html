@@ -11,70 +11,33 @@
 	<link href="../css/uestcWeb.css" rel="stylesheet" type="text/css" />
 	<script src="../js/project-js/top.js"></script>
 
-	<script type="text/javascript">
-		$(function(){	
-		//顶部导航切换
-			$(".nav li a").click(function(){
-				$(".nav li a.selected").removeClass("selected")
-				$(this).addClass("selected");
-			});
-  			//    $("#editPwd").click(function()
-  			// {
-  			//   $("#editPwdm").modal('toggle');
-  			// })
-  
-   			$("#loginOut").click(function(){
-	   			console.log("访问方法成功");
-	   			$.ajax({
-		  			url:"/course/public/ILoginOut",
-		  			success:function(data){
-			  			if(data.success){
-				  			console.log(data);
-				  			window.parent.location.href="login.html";
-				  			window.parent.location.reload();				  
-			  			}
-		  			},
-		  			error:function(jqXHR, textStatus, errorThrown){
-			  			alert("退出失败");
-		  			}
-	  			})
-	 		})
-		})	 
-</script>
-	
+
 	
 </head>
-<body>
-	<style>
-		a:link, a:visited {
-		text-decoration: none;
-		color:black;
-		}
-
-		.topcenter{width:300px;margin: 0 auto;height: 15px}
-		
-		.topright ul{padding-top:15px; float:right; padding-right:12px;}
-		.topright ul li{float:left; padding-left:9px; padding-right:9px;}
-		.topright ul li:last-child{background:none;}
-		.topright ul li a{font-size:13px;}
-		.topright ul li a:hover{color:#ff0000;}
-		.topright ul li span{margin-top:1px;float:left;padding-right:3px;}
-		.topright ul{list-style: none;}
-	</style>
-
-    	<div class="topcenter">
-    	<h1>教学评价管理系统</h1>
+<body style="background:url(../images/topbg.gif) repeat-x;">
+   	<div class="topleft">
+    	<img src="../images/logoljg.png" title="系统首页" style="margin-top:-20px;margin-left:-40px;height: 135px;">
     </div>
    
 	<div class="topright">    
-
-      <ul>
-    
-    <li><a  id="editPwd" >修改密码</a></li>
-    <li><span></span><a  id="editMsg">修改信息</a></li>
-   <!-- /course/public/ILoginOut -->
-    <li><a href="login.html"target="_parent" id="loginOut" >退出</a></li>
-    </ul>
+		<ul>
+			<li><span></span><a href="#" id="editPwd" >修改密码</a></li>
+    		<li><span></span><a href="#" id="editMsg">修改信息</a></li>
+   			<!-- /course/public/ILoginOut -->
+    		<li><a href="login.html" id="loginOut" target="_parent" >退出</a></li>
+		</ul>
+		<div class="user">
+			<!-- <a id="kiri">修改信息</a> id="kiri" -->
+ 		 	<ul>
+ 		 		<li>
+ 		 			<span></span><img src="../images/user.png"></img>&nbsp&nbsp<a href="javascript:return false;" onclick="return false;" style="cursor: default;"id="kiri">
+ 		 			<i class="edit" style="opacity: 0.2"></i></a>
+ 		 		</li>
+ 		 	</ul>
+ 		
+         <!-- <span href="#"  id="kiri" value="233"></span> -->
+			</div>
+		</div>
 
 </body>
 </html>

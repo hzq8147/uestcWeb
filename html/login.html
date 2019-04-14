@@ -5,7 +5,6 @@
 	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
 	<title>系统登录</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script type="text/javascript" language="JavaScript" src="../js/lib-js/jquery.min.js"></script>
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="../css/bootstrapValidator.min.css" rel="stylesheet"/>
 	<script type="text/javascript" src="../js/project-js/login.js"></script>
@@ -50,16 +49,15 @@
 			<ul>
 				<li><input type="text" id="loginUser" class="loginuser" placeholder="请输入用户名"></li>
 				<li><input type="password" id="loginPwd" class="loginpwd" placeholder="请输入密码"></li>
-				<form style="font-size: 15px">
+				<form style="font-size: 14px">
 					<input type="radio" checked="checked" name="identity"  value="1">普通教师 
 					<input type="radio" name="identity" value="2">质量小组成员
 					<input type="radio" name="identity" value="3">质量小组组长
-					<br>
 					<input type="radio" name="identity" value="4">教务科
 					<input type="radio" name="identity" value="5">教学院长
 				</form>
 
-				<div class="login-btn">
+				<div class="login-btn" style="margin-top: 20px;">
 					<li>
 						<input type="button" id="loginBtn" class="loginbtn" value="登录">
 						<input type="button" id="register" class="loginbtn" value="注册">
