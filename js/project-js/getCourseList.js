@@ -39,11 +39,13 @@ $(function(){
 	}
 	function showCourse(courseList){
 		const table=document.getElementById('courses');
+
 		courseList.forEach((item,index) =>{
-			console.log("1");
 			let tr=document.createElement('tr');
 			tr.innerHTML="";
 			tr.innerHTML+=`<td>${item.name}</td>`;
+
+			//tr.innerHTML+="<td>"+item.name+"</td>";
 			tr.innerHTML+=`<td>${item.term}</td>`;
 			tr.innerHTML+=`<td>${item.jiangGaoScore}</td>`;
 			tr.innerHTML+=`<td>${item.jiaoAnScore}</td>`;
