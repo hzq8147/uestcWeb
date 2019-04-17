@@ -4,7 +4,8 @@ $(function(){
 	
 	var userId = getUserId();
 	var courseList;
-	getCourse(2);
+	getCourse(userId);
+	
 	function getUserId(){
 		//！window防止浏览器不支持导致的报错
 		if (!window.localstorage){
