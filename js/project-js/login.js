@@ -70,16 +70,64 @@ $(function(){
 		console.log(userJson); 
 			 
 	}
+
+	//注册
+	function register(){
+		var rej={
+			"teacherId":$('#regi-teacherId').val(),
+			"teacherName":$('#regi-teacherName').val(),
+			"password":$('#regi-password').val(),
+			// "email":$('#regi-email').val(),
+			"identity":$("input[name='loginRole']:checked").val()
+		}
+		var printrej=JSON.stringify(rej);
+		//打印rej对象
+		console.log(printrej);
+
+		$.ajax({
+			type:'POST',
+			url:url+"/register",
+			dataType:"text",
+			data:JSON.stringify(rej),
+			success:function(data){
+				console.log(data);
+				if(data.success)
+            {
+                if($("#regi-teacherId").val()!==""&&$("#regi-password").val()!=="")
+                {alert("注册信息提交成功！请等待审核");}
+            else{
+                alert("请填写用户账号和密码！");
+            }
+            
+            }
+            else
+            {
+                alert("您的信息输入有误");
+            }
+
+			},
+			error:function(xhr,errottext,errorstatus){
+				alert(xhr.status+" "+xhr.statusText);
+			}
+		})
+	}
+
+	//忘记密码
+
+
+
+
+	
 	//登录
 	$("#loginBtn").click(function(){
 		login();
 	});
 	//注册
 	$('#register-sure').click(function(){
-
+		register();
 	});
 	//忘记密码
 	$('forget-sure').click(function(){
-
+		forgetPwd();
 	});
 })
