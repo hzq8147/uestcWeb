@@ -42,11 +42,10 @@ $(function(){
 	function showTerm(){
 		//初始化显示学期下拉菜单内容
 		var termSel=document.getElementById('term_select');
-		console.log(termSel);
 		var term=new Array();
 
 		courseList.forEach((item,index) =>{
-			var tmp="1";
+			let tmp="1";
 			for (let i=0;i<term.length;i++){
 				if (term[i]==item.term) 
 					tmp="0";
@@ -92,10 +91,17 @@ $(function(){
 		var term=$('#term_select').val();
 		var courseName=$('#course_select').val();
 		var featureSel=$('#feature_select').val();
-
+		console.log(featureSel);
+		var courseId;
+		courseList.forEach((item,index)=>{
+			if (item.term==term && item.name==courseName){
+				courseId=item.courseId;
+				console.log(courseId);
+			}
+		})
 		if (term.length>0 && courseName.length>0){
 			//选中某课程
-			mainControl(featureSel);
+			mainControl(courseId,featureSel);
 		}
 	}
 	$("#course_select").change(function(){
@@ -104,14 +110,74 @@ $(function(){
 	$("#feature_select").change(function(){
 		anyChange();
 	})
-	function mainControl(featureSel){
+	function mainControl(courseId,featureSel){
 		switch(featureSel){
 			case'-1':
+			showCourse();
 			break;
 			case'0':
 			showOneCourse();
 			break;
+			case'1':
+			getKeJianResult(courseId);
+			break;
 		}
+	}
+	function getKeJianResult(courseId){
+		var obj={
+			'courseId':courseId
+		}
+		var params=JSON.stringify(obj);
+		$.ajax({
+			type:'POST',
+			url:url+"/getJiangGaoResult",
+			dataType:'text',
+			data:params,
+			success:function(data){
+				var getObj=JSON.parse(data);
+				showKeJianResult(getObj);
+			}
+		})
+	}
+	function showKeJianResult(resultObj){
+		var main=document.getElementById('main');
+		main.innerHTML="";
+		if (resultObj.result==null){
+
+			main.innerHTML="<div>该课程暂无评价数据</div>";
+		}else{
+			var table=document.createElement('table');
+			table.setAttribute('class','tablelist');
+			var thead=document.createElement('thead');
+			thead.innerHTML=`<tr>
+							<th>序号</th>
+							<th>问题描述</th>
+							<th>评价</th>
+							<th>备注</th>
+							 </tr>
+							`;
+			table.appendChild(thead);
+			var question=new Array('课件内容完成程度（≥1/3）','课件教学内容与教学大纲的相关性','课件制作水平');
+			var answer=new Array(resultObj.result.no1Answer,resultObj.result.no2Answer,resultObj.result.no3Answer);
+			var text=new Array(resultObj.result.no1Text,resultObj.result.no2Text,resultObj.result.no3Text);
+			
+			for (let i=0;i<3;i++){
+				let tr=document.createElement('tr');
+				tr.innerHTML=``;
+				tr.innerHTML+=`<td>${i+1}</td>`;
+				tr.innerHTML+=`<td>${question[i]}</td>`;
+				tr.innerHTML+=`<td>${answer[i]}</td>`;
+				tr.innerHTML+=`<td>${text[i]}</td>`;
+				table.appendChild(tr);
+			}
+			let tr=document.createElement('tr');
+			tr.setAttribute('width','100%');	
+			tr.innerHTML=`评价：${resultObj.score}`;
+
+			
+			table.appendChild(tr);
+			main.appendChild(table);
+	}
 	}
 	function showOneCourse(){
 		var term=$('#term_select').val();
@@ -164,6 +230,7 @@ $(function(){
 	};
 	function showCourse(){
 		var main=document.getElementById('main');
+		main.innerHTML="";
 		var table=document.createElement('table');
 		table.setAttribute('class','tablelist');
 

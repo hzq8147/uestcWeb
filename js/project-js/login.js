@@ -29,7 +29,6 @@ $(function(){
 			"identity":identity
 		};
 		var params=JSON.stringify(userObj);
-		console.log(params);
 		$.ajax({
 			type:'POST',
 			url:actionUrl,
