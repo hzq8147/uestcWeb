@@ -29,7 +29,9 @@ $(function(){
 				
 				var courseJson=JSON.stringify(getObj);
 				console.log(courseJson);
+
 				//显示课程列表
+
 				showCourse(getObj);
 				}
 		})
