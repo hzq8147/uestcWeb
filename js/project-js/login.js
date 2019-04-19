@@ -1,5 +1,6 @@
 
 const url="http://101.132.37.10:8080/uestcTMP";
+
 $(function(){
 	function login(){
 
@@ -69,7 +70,73 @@ $(function(){
 		console.log(userJson); 
 			 
 	}
+
+	//注册
+	function register(){
+		//获取身份
+		var identity="";
+		var tmp=0;
+		$("input:checkbox[name='loginRole']:checked").each(function(index,element){
+			tmp++;
+			identity+=$(element).val()+",";
+		})
+		identity=identity.substr(0,identity.length-1);
+		if (tmp<1){
+			alert("请选择注册身份");
+		}else{
+				var rej={
+					"username":$('#regi-teacherId').val(),
+					"name":$('#regi-teacherName').val(),
+					"password":$('#regi-password').val(),
+					// "email":$('#regi-email').val(),
+					"identity":identity
+				}
+				var printrej=JSON.stringify(rej);
+				//打印rej对象
+				console.log(printrej);
+				if($("#regi-teacherId").val()!=="" && $("#regi-password").val()!=="")
+			         {
+			              $.ajax({
+							type:'POST',
+							url:url+"/register",
+							dataType:"text",
+							data:JSON.stringify(rej),
+							success:function(data){
+								console.log(data);
+								var obj=JSON.parse(data);
+								if (obj.errId=="1"){
+									alert("注册信息提交成功！请等待审核");
+								}else{
+							 		alert("该工号已经注册");
+								}  	
+								},
+							error:function(xhr,errottext,errorstatus){
+								alert(xhr.status+" "+xhr.statusText);
+							}
+			          		})
+			          }
+				else{
+				 	alert("请填写用户账号和密码！");
+				}
+		}
+	}
+
+	//忘记密码
+
+
+
+
+	
+	//登录
 	$("#loginBtn").click(function(){
 		login();
+	});
+	//注册
+	$('#register-sure').click(function(){
+		register();
+	});
+	//忘记密码
+	$('forget-sure').click(function(){
+		forgetPwd();
 	});
 })
