@@ -3,11 +3,24 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
+	<link
+    href="../css/bootstrap.min.css"
+    rel="stylesheet">
 	<title></title>
 	<style type="text/css">
 		td{
 			text-align:center;
 		}
+div.container div.row div {
+    
+    height: 38px;
+    font-size: 13px;
+    border: 1px solid gray;
+    text-align:center;
+
+}
+
 	</style>
 	<script type="text/javascript" src="../js/project-js/getCourseList.js"></script>
 	<link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -30,10 +43,10 @@
 	    	<select id='course_select'>
 	    	</select>
 	    	<select id='feature_select'>
-				<option value='-1'>选择教学过程..</option>
+				<option value='-1'>全部评价</option>
 	    		<option value='0'>单项检查</option>
 	    		<option value='1'>讲稿检查</option>
-	    		<option	value='2'>讲义检查</ootion>   		
+	    		<option	value='2'>教案检查</ootion>   		
 	    		<option value='3'>中期教学检查</option>
 	    		<option value='4'>专家听课</option>
 	    		<option value='5'>学生评教</option>
@@ -45,6 +58,7 @@
     </div>
 	<div class="rightinfo" id='main'>
 		</div>
+	
 
 
 	</div>
