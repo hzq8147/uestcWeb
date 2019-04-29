@@ -586,13 +586,30 @@ $(function(){
 			var table=document.createElement('div');
 			table.setAttribute('class','container');
 			table.setAttribute('style','width:900px');
+			table.innerHTML+=`<div class="row">
+								<div class="col-xs-2">教师姓名</div>
+								<div class="col-xs-2">${resultObj.teacherName}</div>
+								<div class="col-xs-2">职称</div>
+								<div class="col-xs-2">${resultObj.zhiCheng}</div>
+								<div class="col-xs-2">所在学院</div>
+								<div class="col-xs-2">${resultObj.xueYuan}</div>
+								</div>
+								`
+			table.innerHTML+=`<div class="row">
+								<div class="col-xs-2">课程名称</div>
+								<div class="col-xs-4">${resultObj.courseName}</div>
+								<div class="col-xs-2">课程类别</div>
+								<div class="col-xs-2">${resultObj.result.fenLei}</div>
+								<div class="col-xs-1">学时</div>
+								<div class="col-xs-1">${resultObj.result.time}</div>								
+			`
 			var xinkeStr;
 			if (resultObj.result.xinkeAnswer=="A"){
 				xinkeStr="是";
 			}else{
 				xinkeStr="否";
 			}
-			table.innerHTML=`<div class="row">
+			table.innerHTML+=`<div class="row">
 									<div class="col-xs-4">是否新开课</div>
 									<div class="col-xs-8">${xinkeStr}</div>
 							</div>`
