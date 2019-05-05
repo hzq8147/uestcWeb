@@ -42,10 +42,14 @@ $(function(){
 	function showTerm(){
 		//初始化显示学期下拉菜单内容
 		var termSel=document.getElementById('term_select');
-		var term=new Array();
+		var term=new Array();//array初始长度为0
 
 		courseList.forEach((item,index) =>{
 			let tmp="1";
+			//第一次没有走循环，因为length为1
+			//term.length是属性
+
+			//查重
 			for (let i=0;i<term.length;i++){
 				if (term[i]==item.term) 
 					tmp="0";
