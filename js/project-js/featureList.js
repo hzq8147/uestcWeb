@@ -64,34 +64,48 @@ $(function(){
 		})
 	}
 	function createList (data) {
+		
 		data.menu.forEach((item,index) => {
-			const menuObj = document.getElementById('menu')
 
+			const menuObj = document.getElementById('menu')
+			menuObj.className = 'menu'
+			const ddone = document.createElement('dd')
+			
 			let menuLevelOne = document.createElement('div')
 			menuLevelOne.innerHTML = `> ${item.name}`
 			menuLevelOne.setAttribute('menuIndex', index)
 			menuLevelOne.setAttribute('name', 'menuLevelOne')
 			menuLevelOne.className = 'menuLevelOne'
-			menuObj.appendChild(menuLevelOne)
+			ddone.appendChild(menuLevelOne)
+			
 			menuLevelOne.addEventListener('click', function(){
 				clearMenuLevelTwo()
 				dispalyMenuLevelTwo(index)
 			})
 
 			let menuLevelTwo = []
+
 			item.menuList.forEach((levelTwoItem,levelTwoIndex) => {
-				let menuLevelTwo = document.createElement('div')
+				const menuson = document.createElement('ul')
+				menuson.className = "menuson"
+				let menuLevelTwo = document.createElement('li')
+				let cite = document.createElement('cite')
+				menuLevelTwo.appendChild(cite)
 				menuLevelTwo.innerHTML = `<a href="${levelTwoItem.url}" target="mainFrame" class="menuTwo">${levelTwoItem.name}</a>`
 				menuLevelTwo.setAttribute('menuIndex', index)
 				menuLevelTwo.setAttribute('levelTwoIndex', levelTwoIndex)
 				menuLevelTwo.setAttribute('name', 'menuLevelTwo')
 				menuLevelTwo.className = 'menuLevelTwo'
-				menuObj.appendChild(menuLevelTwo)
 
+				menuson.appendChild(menuLevelTwo)
+				ddone.appendChild(menuson)
 			})
+			menuObj.appendChild(ddone)
+		
+			dispalyMenuLevelTwo(0)
 		})
-		dispalyMenuLevelTwo(0)
 	}
+	
 	function getIdentity(){
 		if (!window.localstorage){
 			var storage=window.localStorage;
@@ -100,5 +114,4 @@ $(function(){
 			return user.identity;
 		}
 	}
-	
 })
