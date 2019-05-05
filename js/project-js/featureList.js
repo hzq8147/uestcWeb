@@ -1,5 +1,22 @@
 
 const url="http://101.132.37.10:8080/uestcTMP";
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active")
+		$(this).addClass("active");
+	});
+	//下拉和相邻元素取消下拉
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
 $(function(){
 	var identity=getIdentity();
 	getList(identity);
