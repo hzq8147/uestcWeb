@@ -86,19 +86,14 @@ $(function(){
 			let menuLevelTwo = []
 
 			item.menuList.forEach((levelTwoItem,levelTwoIndex) => {
-				const menuson = document.createElement('ul')
-				menuson.className = "menuson"
 				let menuLevelTwo = document.createElement('li')
-				let cite = document.createElement('cite')
-				menuLevelTwo.appendChild(cite)
 				menuLevelTwo.innerHTML = `<a href="${levelTwoItem.url}" target="mainFrame" class="menuTwo">${levelTwoItem.name}</a>`
 				menuLevelTwo.setAttribute('menuIndex', index)
 				menuLevelTwo.setAttribute('levelTwoIndex', levelTwoIndex)
 				menuLevelTwo.setAttribute('name', 'menuLevelTwo')
-				menuLevelTwo.className = 'menuLevelTwo'
-
-				menuson.appendChild(menuLevelTwo)
-				ddone.appendChild(menuson)
+				menuLevelTwo.className = 'menuson'
+				
+				ddone.appendChild(menuLevelTwo)
 			})
 			menuObj.appendChild(ddone)
 		
