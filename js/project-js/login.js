@@ -89,7 +89,9 @@ $(function(){
 					"name":$('#regi-teacherName').val(),
 					"password":$('#regi-password').val(),
 					// "email":$('#regi-email').val(),
-					"identity":identity
+					"identity":identity,
+					"xueYuan":$('#regi-xueYuan').val(),
+					"zhiCheng":$('#regi-zhiCheng').val()
 				}
 				var printrej=JSON.stringify(rej);
 				//打印rej对象
