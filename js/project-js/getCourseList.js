@@ -1,5 +1,5 @@
 
-const url="http://101.132.37.10:8080/uestcTMP";
+const url="https://rtlab.uestc.edu.cn/uestcTMP";
 $(function(){
 	
 	var userId = getUserId();
