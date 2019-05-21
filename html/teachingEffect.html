@@ -4,35 +4,17 @@
 <head>
 	<title>教师教学成效评价</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="../js/project-js/teachingEffect.js"></script> -->
+    <script type="text/javascript" src="../js/lib-js/jquery.form.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/courseStudyEvaluate.cs">
+    <!--引入echarts-->
+    <script src="../js/project-js/echarts.min.js"> </script>
 	<title></title>
-	<style type="text/css">
-		td{
-			text-align:center;
-			font-size: 20px;
-			padding:5px;
-			border-style: solid;
-			
-		}
-	div.container div.row div {
-    
-    	height: 38px;
-    	font-size: 13px;
-    	border: 1px solid gray;
-    	text-align:center;
 
-	}
-	div.r{
-		float: left;
-	}
-	
-
-	</style>
-	<link href="../css/style.css" rel="stylesheet" type="text/css" />
-	<!--引入echarts-->
-	<script type="text/javascript" src="../js/lib-js/echarts.js"></script>
 </head>
 
 
@@ -44,56 +26,185 @@
 		<li><a href="teachingEffect.html">教师教学成效评价</a></li>
    	</ul>
 </div>
-<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div class="r" id="courseAim" style="width: 400px;height:400px; "></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('courseAim'));
+ 
+<div class="rigtinfo">
 
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '课程目标达成度（条形图）'
-            },
-            tooltip: {},
-            legend: {
-                data:['达成度']
-            },
-            xAxis: {
-                data: ["CO1","CO2","CO3"]
-            },
-            yAxis: {},
-            series: [{
-                name: '达成度',
-                type: 'bar',
-                data: [0.7, 0.85, 0.9]
-            }]
-        };
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
-
-    <div class="r" style=" background-color: #f0f9fd; position: relative; left:120px; top: 150px" >
-    	<table style="border-style: solid; border-color: gray;border-width: 1px">
-    		<tr>
-    			<td>CO1课程目标达成度：</td>
-    			<td>0.7</td>
-    		</tr>
-    		<tr>
-    			<td>CO2课程目标达成度：</td>
-    			<td>0.85</td>
-    		</tr>
-    		<tr>
-    			<td>CO3课程目标达成度：</td>
-    			<td>0.9</td>
-    		</tr>
-    		<tr>
-    			<td>总体课程目标达成度：</td>
-    			<td>0.82</td>
-    		</tr>	
-    	</table>
-    	
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="TableAndPic1">
+        <div id="main1" style="float:left;width: 600px;height:400px;"></div>
+        <div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+        
+        <table style="margin-top: 30px;width: 400px;" class="tablelist">
+        <thead>
+        <tr>
+            <th >  课程目标  </th>
+            <th>课程目标具体名称</th>
+            <th >  达成度 </th>
+        </tr>
+        </thead>
+        <tbody id="table1">
+            <tr>
+                <td>CO1</td>
+                <td></td>
+                <td>90%</td>
+            </tr>
+            <tr>
+                <td>CO2</td>
+                <td></td>
+                <td>75%</td>
+            </tr>
+            <tr>
+                <td>CO3</td>
+                <td></td>
+                <td>83%</td>
+            </tr>
+        </tbody>
+    </table>
+        
     </div>
+    
+    <div id="TableAndPic2">
+        <div id="main2" style="float:left;width: 600px;height:400px;"></div>
+        <div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+        
+        <table class="tablelist" style="margin-top: 30px; width: 400px;">
+        <thead>
+        <tr>
+            <th>  毕业指标  </th>
+            <th>  毕业指标具体名称 </th>
+            <th>  达成度 </th>
+
+        </tr>
+        </thead>
+        <tbody id="table2">
+            <tr>
+            <td>GR3.1</td>
+            <td></td>
+            <td>90%</td>
+            </tr>
+            <tr>
+                
+            <td>GR4.2</td>
+            <td></td>
+            <td>75%</td>
+            </tr>
+            <tr>
+            <td>GR5.3</td>
+            <td></td>
+            <td>83%</td>
+            </tr>
+        </tbody>
+        </table>
+        
+        </div>
+
+    
+    
+ 
+    
+    
+<!--    <script  type="text/javascript" src="../js/echartoption.js"> </script> -->
+
+
+
+</div>
+
+<script type="text/javascript">
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        // 指定图表的配置项和数据
+        var option1 = {
+        dataset: {
+         source: [
+             ['courseTarget', 'degree'],
+             ['CO1', 0.9],
+             ['CO2', 0.75],
+             ['CO3', 0.85],
+         ]
+    },
+            grid: {containLabel: true},
+            xAxis: {name: '达成度'},
+            yAxis: [{
+                type: 'category',name: '课程目标'
+            }],
+            visualMap: {
+               orient: 'horizontal',
+                 left: 'center',
+                min: 0,
+                max: 1,
+                text: ['High Score', 'Low Score'],
+                // Map the score column to color
+                dimension: 0,
+                inRange: {
+                 color: ['#D7DA8B', '#E15457']
+                }
+            },
+            series: [
+                {
+                    type: 'bar',
+                    encode: {
+                     // Map the "degree" column to X axis.
+                        x: 'degree',
+                        // Map the "courseTarget"column to Y axis
+                        y: 'courseTarget'
+                 }
+                }
+         ]
+        };
+          //使用刚指定的配置项和数据显示图表。
+                myChart1.setOption(option1);
+
+        
+
+
+
+
+
+
+
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        // 指定图表的配置项和数据
+        var option2 = {
+        dataset: {
+         source: [
+             ['graduationIndex', 'degree'],
+             ['GR3.1', 0.9],
+             ['GR4.2', 0.75],
+             ['GR5.3', 0.85],
+         ]
+    },
+            grid: {containLabel: true},
+            xAxis: {name: '达成度'},
+            yAxis: [{
+                type: 'category',name: '毕业指标'
+            }],
+            visualMap: {
+               orient: 'horizontal',
+                 left: 'center',
+                min: 0,
+                max: 1,
+                text: ['High Score', 'Low Score'],
+                // Map the score column to color
+                dimension: 0,
+                inRange: {
+                 color: ['#D7DA8B', '#E15457']
+                }
+            },
+            series: [
+                {
+                    type: 'bar',
+                    encode: {
+                     // Map the "degree" column to X axis.
+                        x: 'degree',
+                        // Map the "courseTarget"column to Y axis
+                        y: 'graduationIndex'
+                 }
+                }
+         ]
+        };
+          //使用刚指定的配置项和数据显示图表。
+                myChart2.setOption(option2);
+</script>
 </body>
 </html>
+
+
