@@ -1,0 +1,93 @@
+<!-- 教案上传 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/lib-js/jquery.form.js"></script><!-- 
+	<script type="text/javascript" src="../js/project-js/lessonPlan.js"></script> -->
+	<link href="../css/coursePlatManage.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		td{
+			text-align:center;
+		}
+		div.container div.row div {
+    
+    		height: 38px;
+    		font-size: 13px;
+    		border: 1px solid gray;
+    		text-align:center;
+		}
+		
+	</style>
+</head>
+
+
+<body>
+	<div class="place" style="margin-top: -10px">
+   		<span>位置：</span>
+   		<ul class="placeul">
+   			<li><a href="main.html">首页</a></li>
+   			<li><a href="lessonPlan.js">教案上传</a></li>
+    	</ul>
+    </div>
+   
+<div class="rightinfo" style="display: flex;flex-direction: row;">
+	<div class="dropdown" >
+		<span>
+  			<select style="width: 200px;" id='term_select'>
+	    	</select>
+	    	<select style="width: 200px;" id='course_select'>
+	    	</select>
+		</span>
+	</div>
+	<div class="file-box" style="margin-bottom: 10px;margin-left: 20px">
+	<!-- 上传文档 -->
+		<form action="#" id="ajaxForm" method="post" enctype="multipart/form-data">
+   			<input type="text" name="word" id="textfield" class="txt"/>
+   			<input type="button" class="bt123" value="浏览..."/>
+   			<input type="file" name="word" class="file" id="fileField" size="28" onchange="document.getElementById('textfield').value=this.value"/>
+   			<input type="hidden" name="courseTid" id="courseTid">
+   			<input type="submit" id="submits" name="submit" style="margin-left: 10px;" name="submit" class="bt123" value="上传" />
+		</form>
+	</div>
+</div>
+
+<table class="tablelist" id="moduleTable" >
+	<tr>
+		<th style="text-align:left; height: 10px;">讲稿</th>
+	</tr>
+</table>
+<div align="center">
+	<table class="tablelist" style="width:95%;margin-top:10px">
+		<tr>
+			<th height="10px">序号</th>
+			<th height="10px">学期</th>
+			<th height="10px">课程名</th>
+			<th height="10px">教案文件名</th>
+			<th height="10px">教案大小</th>
+			<th height="10px">上传时间</th>
+			<!-- “操作”可以点击查看下载 -->
+			<th height="10px">操作</th>
+
+		</tr>
+		<!-- 上传信息数据 -->
+		<tr>
+			<td>1</td>
+			<td>2018-2019</td>
+			<td>cweqcqcqceqv</td>
+			<td>xewqqrefcqfbcweucqh	l</td>
+			<td>wdwed</td>
+			<td>xd</td>
+			<td>xiazai</td>
+		</tr>
+	</table>
+</div>
+
+
+</body>
+</html>
