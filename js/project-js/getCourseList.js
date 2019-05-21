@@ -898,13 +898,15 @@ $(function(){
     	xAxis: [
         	{
             	type: 'category',
+            	name: '评分',
             	axisTick: {show: false},
             	data: []
         	}
     	],
     	yAxis: [
         	{
-            	type: 'value'
+            	type: 'value',
+            	name: '课程'
         	}
     	],
     	series: [
