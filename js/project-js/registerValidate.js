@@ -1,4 +1,4 @@
-const url="https://rtlab.uestc.edu.cnuestcTMP";
+const url="http://101.132.37.10:8080/uestcTMP";
 /**
  * 教师登录界面--login.html--注册验证
  */
