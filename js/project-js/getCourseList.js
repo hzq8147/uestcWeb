@@ -773,7 +773,7 @@ $(function(){
 				tr.innerHTML+=`<td>${item.chuTiScore}</td>`;
 				tr.innerHTML+=`<td>${item.pingYueScore}</td>`;
 				tr.innerHTML+=`<td>${item.baoGaoScore}</td>`;
-				tr.innerHTML+=`<td>${item.totalScore}</td>`;
+				tr.innerHTML+=`<td>${	item.totalScore}</td>`;
 				table.appendChild(tr);
 			}
 		})
@@ -804,6 +804,8 @@ $(function(){
 						</tr>
 						`
 		table.appendChild(thead);
+		console.log(courseList);
+		console.log(courseList[0]);
 		courseList.forEach((item,index) =>{
 			let tr=document.createElement('tr');
 			tr.innerHTML="";
@@ -824,7 +826,241 @@ $(function(){
 		})
 
 		main.appendChild(table);
-		
-	}
-})
+
+		console.log(courseList);
 	
+
+
+
+ 	//插入echarts
+		$('#mainPic1').show();
+		$('#mainPic2').hide();
+	 	console.log('1');
+
+		var mychart1 = echarts.init(document.getElementById('mainPic1'));
+		
+		//指定图标的配置项和数据
+		var posList = [
+    		'left', 'right', 'top', 'bottom',
+    		'inside',
+    		'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+    		'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+		];
+
+		
+
+
+
+
+	var labelOption = {
+    	normal: {
+        	show: true,
+            position: 'insideBottom',
+            distance:15,
+            align:'left',
+            verticalAlign: 'middle',
+            rotate: 90,
+        	formatter: '{c}  {name|{a}}',
+        	fontSize: 16,
+        	rich: {
+            	name: {
+                	textBorderColor: '#fff'
+            	}
+        	}
+    	}
+	};
+
+	option = {
+    	color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+    	tooltip: {
+        	trigger: 'axis',
+        	axisPointer: {
+            	type: 'shadow'
+        	}
+    	},
+    	legend: {
+        	data: ['讲稿评分', '教案评分', '中期教学评分', '专家听课评分', '学生评教评分', '试卷出题检查评分','试卷评阅检查评分', '试卷分析报告评分', '综合评分'] 
+    	},
+    	toolbox: {
+        	show: true,
+        	orient: 'vertical',
+        	left: 'right',
+        	top: 'center',
+        	feature: {
+            	mark: {show: true},
+            	dataView: {show: true, readOnly: false},
+            	magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            	restore: {show: true},
+            	saveAsImage: {show: true}
+        	}
+    	},
+    	calculable: true,
+    	xAxis: [
+        	{
+            	type: 'category',
+            	axisTick: {show: false},
+            	data: []
+        	}
+    	],
+    	yAxis: [
+        	{
+            	type: 'value'
+        	}
+    	],
+    	series: [
+        	{
+            	name: '讲稿评分',
+            	type: 'bar',
+            	barGap: 0,
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '教案评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '中期教学评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '专家听课评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '学生评教评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '试卷出题检查评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '试卷评阅检查评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '试卷分析报告评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	},
+        	{
+            	name: '综合评分',
+            	type: 'bar',
+            	label: labelOption,
+            	data: []
+        	}]
+	};
+	console.log(courseList[0]);
+	console.log(typeof(courseList));
+
+	//获取对象转为二维数组
+	var obj = courseList;
+	var courseArr = [];
+        for(let i in obj) {
+            courseArr[i] = [];
+            for(let j in obj[i]) {
+                courseArr[i].push(obj[i][j]);
+            }
+        }
+        console.log(courseArr);
+
+     //数组转置
+     var res=[];
+	res.length=courseArr[0].length;
+	for(var i=0;i<res.length;i++){
+		res[i]=[];
+	}
+	for(var row=0;row<courseArr.length;row++){
+		for(var col=0;col<courseArr[row].length;col++){
+				res[col][row]=courseArr[row][col];
+		}
+	}
+
+	console.log(res);
+	mychart1.setOption(option);
+	mychart1.setOption({
+		//名字-5
+		xAxis: {data: res[5]},
+		series: [
+        	{
+            	name: '讲稿评分',
+            	type: 'bar',
+            	barGap: 0,
+            	label: labelOption,
+            	//讲稿-3
+            	data: res[3]
+        	},
+        	{
+            	name: '教案评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//教案-4
+            	data: res[4]
+        	},
+        	{
+            	name: '中期教学评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//中期-13
+            	data: res[13]
+        	},
+        	{
+            	name: '专家听课评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//听课-11
+            	data: res[11]
+        	},
+        	{
+            	name: '学生评教评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//评教-6
+            	data: res[6]
+        	},
+        	{
+            	name: '试卷出题检查评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//出题-1
+            	data: res[1]
+        	},
+        	{
+            	name: '试卷评阅检查评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//评阅-7
+            	data: res[7]
+        	},
+        	{
+            	name: '试卷分析报告评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//报告-0
+            	data: res[0]
+        	},
+        	{
+            	name: '综合评分',
+            	type: 'bar',
+            	label: labelOption,
+            	//综合-12
+            	data: res[12]
+        	}]
+	});
+}
+	
+	})
