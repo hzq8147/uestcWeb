@@ -1,0 +1,95 @@
+<!-- 质量成员检查任务 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/lib-js/jquery.form.js"></script>
+	<!-- 
+	<script type="text/javascript" src="../js/project-js/checkTask.js"></script> -->
+	<link href="../css/coursePlatManage.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		td{
+			text-align:center;
+		}
+		div.container div.row div {
+    
+    		height: 38px;
+    		font-size: 13px;
+    		border: 1px solid gray;
+    		text-align:center;
+		}
+		
+	</style>
+</head>
+
+
+<body>
+	<div class="place" style="margin-top: -10px">
+   		<span>位置：</span>
+   		<ul class="placeul">
+   			<li><a href="main.html">首页</a></li>
+   			<li><a href="checkTask.html">我的检查任务</a></li>
+    	</ul>
+    </div>
+   
+<div class="rightinfo" >
+	<div class="dropdown" >
+		<span>
+  			<select style="width: 200px;" id='term_select'>
+	    	</select>
+	    	<!-- 这里的“course_select”显示格式是：课程名_教师名 -->
+	    	<select style="width: 200px;" id='course_select'>
+	    	</select>
+	    	<!-- 任务选择 -->
+	    	<select style="width: 200px;" id="task_select" >
+	    		<option value="1">教案检查</option>
+	    		<option value="2">讲稿检查</option>
+	    		<option value="3">中期教学检查</option>
+	    		<option value="4">试卷出题检查</option>
+	    		<option value="5">试卷评阅检查</option>
+	    		<option value="6">试卷分析报告检查</option>
+
+	    	</select>
+		</span>
+	</div>
+
+
+	<!-- 选定选项后点击下载按钮，进行下载文件
+		——>用户在本机上打开刚下载的文件
+		——>然后点击按钮“开始检查”，点击后
+		——>弹出检查具体页面 -->
+	<table style="margin-bottom: 10px;margin-left: 20px">
+		<tr>
+			<td>文件名</td>
+		
+		<!-- 下载文档 -->
+			<td id="taskName"> </td>
+			<td>
+				<form action="#" id="ajaxForm" method="get" enctype="multipart/form-data">
+   				<input type="text" name="word" id="textfield" class="txt"/>
+   				
+   				<input type="hidden" name="courseTid" id="courseTid">
+   				<input type="submit" id="submits" name="submit" style="margin-left: 10px;" name="submit" class="bt123" value="上传" />
+			</form>
+			</td>
+		</tr>
+		
+			<form action="#" id="ajaxForm" method="get" enctype="multipart/form-data">
+   				<input type="text" name="word" id="textfield" class="txt"/>
+   				
+   				<input type="hidden" name="courseTid" id="courseTid">
+   				<input type="submit" id="submits" name="submit" style="margin-left: 10px;" name="submit" class="bt123" value="上传" />
+			</form>
+		</span>
+	
+		
+
+
+
+</body>
+</html>
