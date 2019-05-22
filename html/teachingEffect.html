@@ -8,9 +8,9 @@
 	<script type="text/javascript" src="../js/lib-js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- <script type="text/javascript" src="../js/project-js/teachingEffect.js"></script> -->
+   <!--  <script type="text/javascript" src="../js/project-js/teachingEffect.js"></script> -->
     <script type="text/javascript" src="../js/lib-js/jquery.form.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/courseStudyEvaluate.cs">
+    <link rel="stylesheet" type="text/css" href="../css/courseStudyEvaluate.css">
     <!--引入echarts-->
     <script src="../js/lib-js/echarts.min.js"> </script>
 	<title></title>
@@ -31,8 +31,8 @@
 
     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="TableAndPic1">
-        <div id="main1" style="float:left;width: 33%; height: 400px;"></div>
-        <div style="float:left;margin-left:150px;height:400px;width:calc(100% - 50%)">
+        <div id="main1" style="float:left;width: 35%; height: 300px;"></div>
+        <div style="float:left;margin-left:50px;height:300px;width:calc(100% - 65%)">
         
         <table style="margin-top: 30px;width: 80%;" class="tablelist">
         <thead>
@@ -72,10 +72,11 @@
     </table>
         
     </div>
+</div>
     
     <div id="TableAndPic2">
-        <div id="main2" style="float:left;width: 33%; height: 400px;"></div>
-        <div style="float:left;margin-left:150px;height:400px;width:calc(100% - 50%)">
+        <div id="main2" style="float:left;width: 35%; height: 300px;"></div>
+        <div style="float:left;margin-left:50px;height:300px;width:calc(100% - 65%)">
         
         <table style="margin-top: 30px;width: 80%;" class="tablelist">
         <thead>
@@ -127,103 +128,90 @@
 
 
 </div>
+</div>
 
 <script type="text/javascript">
         var myChart1 = echarts.init(document.getElementById('main1'));
-        // 指定图表的配置项和数据
-        var option1 = {
-        dataset: {
-         source: [
-             ['courseTarget', 'degree'],
-             ['CO1', 0.9],
-             ['CO2', 0.75],
-             ['CO3', 0.85],
-             ['平均CO',0.82]
-         ]
-    },
-            grid: {containLabel: true},
-            xAxis: {name: '达成度'},
-            yAxis: [{
-                type: 'category',name: '课程目标'
-            }],
-            visualMap: {
-               orient: 'horizontal',
-                 left: 'center',
-                min: 0,
-                max: 1,
-                text: ['High Score', 'Low Score'],
-                // Map the score column to color
-                dimension: 0,
-                inRange: {
-                 color: ['#D7DA8B', '#E15457']
+        option1 = {
+            title: {
+                text: '课程目标达成度'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
                 }
+            },
+            legend: {
+                data: ['达成度']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                name: '达成度(%)',
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                name: '课程目标',
+                type: 'category',
+                data: ['CO1','CO2','CO3','平均CO']
             },
             series: [
                 {
+                    name: '课程目标达成度',
                     type: 'bar',
-                    encode: {
-                     // Map the "degree" column to X axis.
-                        x: 'degree',
-                        // Map the "courseTarget"column to Y axis
-                        y: 'courseTarget'
-                 }
+                    data: [0.9, 0.75, 0.83, 0.82]
                 }
-         ]
+            ]
         };
-          //使用刚指定的配置项和数据显示图表。
-                myChart1.setOption(option1);
-
-        
-
-
-
-
-
+        myChart1.setOption(option1);
 
 
         var myChart2 = echarts.init(document.getElementById('main2'));
-        // 指定图表的配置项和数据
-        var option2 = {
-        dataset: {
-         source: [
-             ['graduationIndex', 'degree'],
-             ['GR3.1', 0.9],
-             ['GR4.2', 0.75],
-             ['GR5.3', 0.85],
-             ['平均GR',0.82]
-         ]
-    },
-            grid: {containLabel: true},
-            xAxis: {name: '达成度'},
-            yAxis: [{
-                type: 'category',name: '毕业指标'
-            }],
-            visualMap: {
-               orient: 'horizontal',
-                 left: 'center',
-                min: 0,
-                max: 1,
-                text: ['High Score', 'Low Score'],
-                // Map the score column to color
-                dimension: 0,
-                inRange: {
-                 color: ['#D7DA8B', '#E15457']
+        option2 = {
+            title: {
+                text: '毕业指标达成度'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
                 }
+            },
+            legend: {
+                data: ['达成度']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                name: '达成度(%)',
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                name: '毕业指标',
+                type: 'category',
+                data: ['GR3.1','GR4.2','GR5.3','平均GR']
             },
             series: [
                 {
+                    name: '毕业指标达成度',
                     type: 'bar',
-                    encode: {
-                     // Map the "degree" column to X axis.
-                        x: 'degree',
-                        // Map the "courseTarget"column to Y axis
-                        y: 'graduationIndex'
-                 }
+                    data: [0.9, 0.75, 0.83, 0.82]
                 }
-         ]
+            ]
         };
-          //使用刚指定的配置项和数据显示图表。
-                myChart2.setOption(option2);
+        myChart2.setOption(option2);
+
 </script>
 </body>
 </html>

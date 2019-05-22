@@ -57,8 +57,6 @@
 	    	</select>
 		</span>
 	</div>
-
-
 	<!-- 选定选项后点击下载按钮，进行下载文件
 		——>用户在本机上打开刚下载的文件
 		——>然后点击按钮“开始检查”，点击后
@@ -69,24 +67,13 @@
 		
 		<!-- 下载文档 -->
 			<td id="taskName"> </td>
-			<td>
-				<form action="#" id="ajaxForm" method="get" enctype="multipart/form-data">
-   				<input type="text" name="word" id="textfield" class="txt"/>
-   				
-   				<input type="hidden" name="courseTid" id="courseTid">
-   				<input type="submit" id="submits" name="submit" style="margin-left: 10px;" name="submit" class="bt123" value="上传" />
+			<!-- 显示文件名 -->
+			<input type="text" id="fileName" class="txt">
+			<td><button type="button" id="downloadBtn">下载</button></td>
 			</form>
 			</td>
 		</tr>
 		
-			<form action="#" id="ajaxForm" method="get" enctype="multipart/form-data">
-   				<input type="text" name="word" id="textfield" class="txt"/>
-   				
-   				<input type="hidden" name="courseTid" id="courseTid">
-   				<input type="submit" id="submits" name="submit" style="margin-left: 10px;" name="submit" class="bt123" value="上传" />
-			</form>
-		</span>
-	
 		
 
 

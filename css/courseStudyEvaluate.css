@@ -1,0 +1,18 @@
+.dropdown
+{
+	margin-right: 30px;margin-bottom: 20px;
+}
+.file-box{ position:relative;width:600px;top:5px}
+.txt{ height:27px; border:1px solid #cdcdcd; width:400px;}
+.bt123{ background-color:#FFF; border:1px solid #CDCDCD;height:30px; width:70px;color:#000000;}
+.file{ position:absolute; top:0; right:80px; height:30px; filter:alpha(opacity:0);opacity: 0;width:260px }
+.input1{height:27px; width:100px; font-size:18px;}
+.input2{height:27px; width:400px; font-size:18px;}
+.input3{height:27px; width:100px; font-size:18px;}
+.input4{height:30px; width:400px; font-size:18px;}
+.input5{height:30px; width:400px; font-size:18px;}
+.textarea1{height:108px; width:220px; font-size:14px; line-height:1.5}
+.textarea2{height:108px; width:220px; font-size:14px; line-height:1.5}
+.textarea3{height:50px; width:450px; font-size:14px; line-height:1.5}
+.textarea4{height:80px; width:450px; font-size:14px; line-height:1.5}
+.textarea5{height:80px; width:400px; font-size:14px; line-height:1.5}

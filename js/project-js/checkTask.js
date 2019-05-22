@@ -89,3 +89,15 @@ $(function(){
 		})
 		
 	}
+	var $btn1 = $("#downloadBtn");
+    $Btn1.click(function(){
+    var $Form1 = $("<form method='get'></form>");
+
+    $Form1.attr("action","https://codeload.github.com/douban/douban-client/legacy.zip/master");
+
+    $(document.body).append($Form1);
+
+    //提交表单，实现下载
+    $Form1.submit();
+});
+})

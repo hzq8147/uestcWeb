@@ -840,19 +840,7 @@ $(function(){
 		var mychart1 = echarts.init(document.getElementById('mainPic1'));
 		
 		//指定图标的配置项和数据
-		var posList = [
-    		'left', 'right', 'top', 'bottom',
-    		'inside',
-    		'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-    		'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-		];
-
-		
-
-
-
-
-	var labelOption = {
+		var labelOption = {
     	normal: {
         	show: true,
             position: 'insideBottom',
@@ -898,7 +886,7 @@ $(function(){
     	xAxis: [
         	{
             	type: 'category',
-            	name: '评分',
+            	name: '课程',
             	axisTick: {show: false},
             	data: []
         	}
@@ -906,7 +894,7 @@ $(function(){
     	yAxis: [
         	{
             	type: 'value',
-            	name: '课程'
+            	name: '评分'
         	}
     	],
     	series: [
