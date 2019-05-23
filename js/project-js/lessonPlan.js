@@ -33,7 +33,6 @@ $(function(){
 
 				//显示课程列表
 				showTerm();
-				showCourse();
 				}
 		})
 		
@@ -89,3 +88,4 @@ $(function(){
 		})
 		
 	}
+})

@@ -9,9 +9,10 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript" src="../js/lib-js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/lib-js/jquery.form.js"></script>
-	<!-- 
-	<script type="text/javascript" src="../js/project-js/checkTask.js"></script> -->
+	<script src="../js/lib-js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="../js/project-js/checkTask.js"></script>
 	<link href="../css/coursePlatManage.css" rel="stylesheet" type="text/css" />
+
 	<style type="text/css">
 		td{
 			text-align:center;
@@ -62,30 +63,34 @@
 		——>然后点击按钮“开始检查”，点击后
 		——>弹出检查具体页面 -->
 	<div>
-		
-		<span style="font-size: larger;">文件名</span>
+		<label style="width: 100px; font-size: larger;">文件名</label>
 		<!-- 下载文档 -->
-			<!-- 显示文件名 -->
-		<span width="50%" id="taskName" style="font-size: larger;">swjdiuqgfu</span>
-		<button type="button" id="downloadBtn" style="font-size: larger;">下载</button>
-	
+		<!-- 显示文件名 -->
+		<label style="width:200px; font-size: larger;" id="taskName">swjdiuqgfu</label>
+		<input type="button" id="downloadBtn" class="loginbtn" value="下载" >
+
+		<input  id="showPaperBtn" type="button" class="btn btn-primary" onclick="popBox()" value="显示问卷">
+		<div id="popLayer"></div>
+ 		<div id="popBox">
+ 			<div class="close">
+ 				<a href="javascript:void(0)" onclick="closeBox()">关闭</a>
+ 			</div>
+ 			<!-- 问卷显示 -->
+ 			<div class="content" id="checkPaper">
+ 			<table class="tablelist" >
+ 				<tr>
+ 					<th>检查任务问卷</th>
+ 				</tr>
+ 			</table>
+
+
+
+ 		</div>
+ 	</div>
 	</div>
 
-      <table class="tablelist" id="moduleTable" >
-        <thead>
-        <tr>
-        <th>教学大纲</th>
-      </tr>
-  </thead>
-  <tbody>
-    </tbody>
-</table>
-<div id="content" style="width: 90%;margin-left: auto;margin-right: auto">
-  <!-- <p id="content"></p> -->
 
-</div>
-</div>
-
+ 	</div>
 
 
 </body>

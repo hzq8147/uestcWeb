@@ -730,6 +730,8 @@ $(function(){
 			
 			table.appendChild(tr);
 			main.appendChild(table);
+			$('#mainPic1').hide();
+			$('#mainPic2').show();
 	}
 	}
 	function showOneCourse(){
@@ -779,6 +781,8 @@ $(function(){
 		})
 
 		main.appendChild(table);
+		$('#mainPic1').hide();
+		$('#mainPic2').show();
 
 	};
 	function showCourse(){
