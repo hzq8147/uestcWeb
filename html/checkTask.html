@@ -47,7 +47,8 @@
 	    	<select style="width: 200px;" id='course_select'>
 	    	</select>
 	    	<!-- 任务选择 -->
-	    	<select style="width: 200px;" id="task_select" >
+	    	<select style="width: 200px;" id="feature_select" >
+	    		<option value="0">全部检查任务</option>
 	    		<option value="1">教案检查</option>
 	    		<option value="2">讲稿检查</option>
 	    		<option value="3">中期教学检查</option>
@@ -69,29 +70,19 @@
 		<label style="width:200px; font-size: larger;" id="taskName">swjdiuqgfu</label>
 		<input type="button" id="downloadBtn" class="loginbtn" value="下载" >
 
-		<input  id="showPaperBtn" type="button" class="btn btn-primary" onclick="popBox()" value="显示问卷">
-		<div id="popLayer"></div>
- 		<div id="popBox">
- 			<div class="close">
- 				<a href="javascript:void(0)" onclick="closeBox()">关闭</a>
- 			</div>
  			<!-- 问卷显示 -->
  			<div class="content" id="checkPaper">
- 			<table class="tablelist" >
+ 			<table class="tablelist" style="margin-top: 20px;">
  				<tr>
  					<th>检查任务问卷</th>
  				</tr>
  			</table>
-
-
-
+			
  		</div>
  	</div>
+	<div class="rightinfo" id="main"></div>
+		
 	</div>
-
-
- 	</div>
-
 
 </body>
 </html>
