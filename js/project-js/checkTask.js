@@ -119,145 +119,52 @@ $(function(){
 			showNothing();
 			break;
 			case'1':
-			getJiaoAnResult(courseId);
+			showJiaoAnPaper();
 			break;
 			case'2':
-			getJiangGaoResult(courseId);
+			showJiangGaoPaper();
 			break;
 			case'3':
-			getZhongQiResult(courseId);
+			showZhongQiPaper();
 			break;
 			case'4':
-			getChuTiResult(courseId);
+			showChuTiPaper();
 			break;
 			case'5':
-			getPingYueResult(courseId);
+			showPingYuePaper();
 			break;
 			case'6':
-			getFenXiResult(courseId);
+			showFenXiPaper();
 			break;
 		}
 	}
 	function showNothing(){
-
+		$('#Nothing').show();
+		$('#jiaoAn').hide();
+		$('#jiangGao').hide();
+		$('#zhongQi').hide();
+		$('#chuTi').hide();
+		$('#pingYue').hide();
+		$('#fenXi').hide();
 	}
-	function getFenXiResult(courseId){
-		var obj={
-			'courseId':courseId
-		}
-		var params=JSON.stringify(obj);
-		$.ajax({
-			type:'POST',
-			url:url+"/getFenXiResult",
-			dataType:'text',
-			data:params,
-			success:function(data){
-				var getObj=JSON.parse(data);
-				
-				showFenXiResult(getObj);
-			}
-		})
+	function showFenXiPaper(){
+		$('#fenXi').show();
+		$('#jiaoAn').hide();
+		$('#jiangGao').hide();
+		$('#zhongQi').hide();
+		$('#chuTi').hide();
+		$('#pingYue').hide();
+		$('#Nothing').hide();
 	}
-	function showFenXiResult(resultObj){
-		var main=document.getElementById('main');
-		 main.innerHTML="";
-		 if (resultObj.errId=="0"){
-		 		main.innerHTML="<div>该课程暂无评价数据</div>";
-		 	}else{
-		 		var table=document.createElement('div');
-				table.setAttribute('class','container');
-				table.setAttribute('style','width:900px');
-
-				table.innerHTML=`<div class="row">
-									<div class="col-xs-1">序号</div>
-									<div class="col-xs-7">检查指标</div>
-									<div class="col-xs-4">评级</div>
-								</div>`;
-				var question=new Array('试卷分析报告是否客观、准确、完整','试卷分析报告分析内容是否与前两年内容雷同','近三年试卷分析报告出现的问题是否改进','成绩构成是否合理（参照教学大纲检查）','平时成绩考核是否有合理依据（参照教学大纲检查，不能依据学生出勤情况）');
-				for (i=0;i<5;i++){
-					table.innerHTML+=`<div class="row">
-										<div class="col-xs-1">${i+1}</div>
-										<div class="col-xs-7">${question[i]}</div>
-										<div class="col-xs-4">${resultObj.answer[i]}</div>
-									</div>`;
-				}
-				table.innerHTML+=`<div class="row" >
-									<div class="col-xs-3"style="height:100px">意见与建议</div>
-									<div class="col-xs-9"style="height:100px">${resultObj.advice}</div>
-							</div>`
-				table.innerHTML+=`<div class="row">
-									<div class="col-xs-12"style="text-align:left">分数：${resultObj.score}</div>
-									</div>`
-				table.innerHTML+=`<div style="height:20px"></div>`
-				resultObj.problem.forEach((item,index)=>{
-					table.innerHTML+=`<div class="row" >
-										<div class="col-xs-12"style="text-align:left">${item.questionNo}.${question[item.questionNo-1]}</div>
-										</div>`
-					table.innerHTML+=`<div class="row">
-										<div class="col-xs-12" style="text-align:left;height:50px">${item.text}</div>
-									  </div>`
-				})
-				main.appendChild(table);
-		 	}
-	}
-	function getPingYueResult(courseId){
-		var obj={
-			'courseId':courseId
-		}
-		var params=JSON.stringify(obj);
-		$.ajax({
-			type:'POST',
-			url:url+"/getPingYueResult",
-			dataType:'text',
-			data:params,
-			success:function(data){
-				var getObj=JSON.parse(data);
-				
-				showPingYueResult(getObj);
-			}
-		})
-	}
-	function showPingYueResult(resultObj){
-		var main=document.getElementById('main');
-		 main.innerHTML="";
-		 if (resultObj.errId=="0"){
-		 		main.innerHTML="<div>该课程暂无评价数据</div>";
-		 	}else{
-		 		var table=document.createElement('div');
-				table.setAttribute('class','container');
-				table.setAttribute('style','width:900px');
-
-				table.innerHTML=`<div class="row">
-									<div class="col-xs-1">序号</div>
-									<div class="col-xs-7">检查指标</div>
-									<div class="col-xs-4">评级</div>
-								</div>`;
-				var question=new Array('评分标准是否科学、合理、规范','是否使用红笔批改','是否严格按照评分标准批改，批改是否准确、公平、一致、无遗漏。','签名是否规范（批阅签字表、修改之处）','成绩单是否规范（教师签名、学院盖章）');
-				for (i=0;i<5;i++){
-					table.innerHTML+=`<div class="row">
-										<div class="col-xs-1">${i+1}</div>
-										<div class="col-xs-7">${question[i]}</div>
-										<div class="col-xs-4">${resultObj.answer[i]}</div>
-									</div>`;
-				}
-				table.innerHTML+=`<div class="row" >
-									<div class="col-xs-3"style="height:100px">意见与建议</div>
-									<div class="col-xs-9"style="height:100px">${resultObj.advice}</div>
-							</div>`
-				table.innerHTML+=`<div class="row">
-									<div class="col-xs-12"style="text-align:left">分数：${resultObj.score}</div>
-									</div>`
-				table.innerHTML+=`<div style="height:20px"></div>`
-				resultObj.problem.forEach((item,index)=>{
-					table.innerHTML+=`<div class="row" >
-										<div class="col-xs-12"style="text-align:left">${item.questionNo}.${question[item.questionNo-1]}</div>
-										</div>`
-					table.innerHTML+=`<div class="row">
-										<div class="col-xs-12" style="text-align:left;height:50px">${item.text}</div>
-									  </div>`
-				})
-				main.appendChild(table);
-		 	}
+	
+	function showPingYuePaper(){
+		$('#pingYue').show();
+		$('#jiaoAn').hide();
+		$('#jiangGao').hide();
+		$('#zhongQi').hide();
+		$('#chuTi').hide();
+		$('#fenXi').hide();
+		$('#Nothing').hide();
 	}
 	function getChuTiResult(courseId){
 		var obj={
