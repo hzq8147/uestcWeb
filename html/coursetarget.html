@@ -1,0 +1,154 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>课程成绩查看</title>
+   	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/course/courseGrade.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.js"></script>
+	<link href="../css/courseStudyEvaluate.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts-en.js"> </script>
+
+	<script  type="text/javascript" src="../js/echartoption.js"> </script>
+</head>
+
+
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">课程大数据分析</a></li>
+        <li><a href="#">学习成效分析</a></li>
+    </ul>
+</div>
+
+<div class="rightinfo" style="display: flex;flex-direction: row;">  
+    <div class="dropdown" >
+    <button class="btn btn-default dropdown-toggle" type="button" id="courseTerms" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 270px;">
+             <span> 课程学期 ▼</span></button>
+    <ul class="dropdown-menu" id="courseTermc" aria-labelledby="dropdownMenu1"></ul></div>
+    <div class="dropdown" >    
+    <button class="btn btn-default dropdown-toggle" type="button" id="courseNamedrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 270px;" >
+             <span> 课程名称 ▼</span></button>
+    <ul class="dropdown-menu" id="courseNamedropul" aria-labelledby="dropdownMenu2"></ul></div>
+    
+    <div class="dropdown" >
+    <button class="btn btn-default dropdown-toggle" type="button" id="courseClassdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 270px;" >
+             <span> 课程班号 ▼</span></button>
+    <ul class="dropdown-menu" id="courseClassdropul" aria-labelledby="dropdownMenu2"></ul></div>
+    
+    <div class="dropdown" >
+    <button class="btn btn-default dropdown-toggle" type="button" id="gradeType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 270px;" >
+             <span> 学习成效分析 ▼</span></button>
+    <ul class="dropdown-menu" id="gradeTypeli" aria-labelledby="dropdownMenu3">
+    <li><a href='#' id='echart1'>课程目标达成度分析</a></li>
+    <li><a href='#' id='echart2'>课程成绩分析</a></li>
+    <li><a href='#' id='echart3'>毕业指标分析</a></li>
+    <li><a href='#' id='echart4'>学习成果分析</a></li>
+
+    </ul></div>
+</div>
+
+<div class="rightinfo">
+
+
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="TableAndPic1" style="display:none;">
+    	<div id="main" style="float:left;width: 600px;height:400px;"></div>
+    	<div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+    	
+    	<table class="tablelist">
+        <thead>
+        <tr>
+            <th style="width: 20%">  课程目标  </th>
+            <th style="width: 60%">  课程目标名称 </th>
+            <th style="width: 20%">  达成度 </th>
+            
+       
+        </tr>
+        </thead>
+        <tbody id="table1"></tbody>
+    </table>
+    	
+    	</div>
+    	<div id="mainall" style="float:left;width: 95%;height:400px;"></div>
+    </div>
+    <div id="TableAndPic2" style="display:none;">
+    	<div id="main2" style="float:left;width: 600px;height:400px;"></div>
+    	<div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+    	
+    	<table class="tablelist">
+        <thead>
+        <tr>
+            <th>  分数段  </th>
+            <th>  人数 </th>
+            <th>  比率 </th>
+
+        </tr>
+        </thead>
+        <tbody id="table2"></tbody>
+    </table>
+    	
+    	</div>
+    </div>
+    
+    
+        <div id="TableAndPic3" style="display:none;">
+    	<div id="main3" style="float:left;width: 600px;height:400px;"></div>
+    	<div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+    	
+    	<table class="tablelist">
+        <thead>
+        <tr>
+            <th style="width: 20%">  指标点编号  </th>
+            <th style="width: 60%">  指标点名称  </th>
+            <th style="width: 20%">  达成度 </th>
+
+        </tr>
+        </thead>
+        <tbody id="table3"></tbody>
+    </table>
+    	
+    	</div>
+    </div>
+    
+    
+        <div id="TableAndPic4" style="display:none;">
+    	<div id="main4" style="float:left;width: 600px;height:400px;"></div>
+    	<div style="float:left;margin-left:50px;height:400px;width:calc(100% - 650px)">
+    	
+    	<table class="tablelist">
+        <thead>
+        <tr>
+            <th >  学习成果编号  </th>
+            <th>  学习成果名称 </th>
+            <th>  达成度 </th>
+
+        </tr>
+        </thead>
+        <tbody id="table4"></tbody>
+    </table>
+    	
+    	</div>
+    </div>
+    
+    
+    
+    
+<!-- 	<script  type="text/javascript" src="../js/echartoption.js"> </script> -->
+
+
+
+
+</div>
+</body>
+<style>
+.echartShow{
+	display:none;
+}
+</style>
+</html>
+
+
