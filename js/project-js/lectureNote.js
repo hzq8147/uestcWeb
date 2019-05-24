@@ -1,10 +1,34 @@
-const url="http://101.132.37.10:8080/uestcTMP";
+const url="http://127.0.0.1:8080/uestcTMP";
 $(function(){
 	
+	var fileurl=url+'/uploadLectureNote';
 	var userId = getUserId();
 	var courseList;
-	getCourse(2);
+	var courseId;
+	var term;
+	var courseName;
+	getCourse(userId);
 	
+	$('#submits').click(function(){
+		var fileObj=document.getElementById('fileField').files[0];
+		var fileController=fileurl;
+
+		var form=new FormData();
+		form.append("courseId",courseId);
+		form.append('file',fileObj);
+		$.ajax({
+			url:fileurl,
+			type:"POST",
+			data:form,
+			contentType:false,
+			processData:false,
+			success:function(data){
+				alert('上传成功');
+				anyChange();
+			}
+		})
+
+	})
 	function getUserId(){
 		//！window防止浏览器不支持导致的报错
 		if (!window.localstorage){
@@ -29,7 +53,7 @@ $(function(){
 				courseList= JSON.parse(data);
 				
 				var courseJson=JSON.stringify(courseList);
-				console.log(courseJson);
+				
 
 				//显示课程列表
 				showTerm();
@@ -37,6 +61,67 @@ $(function(){
 		})
 		
 	}
+	function anyChange(){
+		var table=document.getElementById('fileTable');
+		table.innerHTML="";
+			table.innerHTML+=``
+		//两个下拉菜单任意change都会触发
+		term=$('#term_select').val();
+		courseName=$('#course_select').val();
+		courseList.forEach((item,index)=>{
+			if (item.term==term && item.name==courseName){
+				courseId=item.courseId;
+			}
+		})
+		if (term.length>0 && courseName.length>0){
+			//选中某课程,更改文件列表
+			mainControl();
+		}
+	}
+	function mainControl(){
+
+		//获取文件列表
+		var obj={
+			'courseId':courseId,
+		}
+		var params=JSON.stringify(obj);
+		$.ajax({
+			type:'POST',
+			url:url+"/getLectureNoteFileInf",
+			dataType:"text",
+			data:params,
+			success:function(data){
+				var fileInf=JSON.parse(data);
+				showFile(fileInf);
+			}
+		})
+
+	}
+	function showFile(fileInf){
+		var table=document.getElementById('fileTable');
+		
+	
+		if (fileInf.errId==1){
+			table.innerHTML=`
+			<tr>
+			<td>1</td>
+			<td>${term}</td>
+			<td>${courseName}</td>
+			<td>${fileInf.files.name}</td>
+			<td>${fileInf.files.size}字节</td>
+			<td>${fileInf.files.date}</td>
+			<td><a href="${url}/uploadLectureNote/${fileInf.files.fileName}" download="${fileInf.files.name}">下载</a></td>
+			</tr>
+		`
+		}
+		
+	}
+	$("#course_select").change(function(){
+		anyChange();
+	})
+	$("#feature_select").change(function(){
+		anyChange();
+	})
 	function showTerm(){
 		//初始化显示学期下拉菜单内容
 		var termSel=document.getElementById('term_select');
@@ -86,6 +171,6 @@ $(function(){
 				courseSel.appendChild(option);
 			}
 		})
-		
+		anyChange();
 	}
 	})
