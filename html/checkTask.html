@@ -79,11 +79,322 @@
 			
  		</div>
  	</div>
- 	<div class="rightinfo" id="Nothing" style="display: none;"></div>
-	<div class="rightinfo" id="jiaoAn" style="display: none;"></div>
-	<div class="rightinfo" id="jiangGao" style="display: none;"></div>
-	<div class="rightinfo" id="zhongQi" style="display: none;"></div>
-	<div class="rightinfo" id="chuTi" style="display: none;"></div>
+
+
+ 	<div class="rightinfo" id="Nothing" style="display: none;">
+ 		
+ 	</div>
+	<div class="container" id="jiaoAn" style="width:900px; display: none;">
+		<div class="row">
+			<div class="col-xs-2">教师姓名</div>
+			<div class="col-xs-2" id="teacherName"></div>
+			<div class="col-xs-2">职称</div>
+			<div class="col-xs-2" id="zhiCheng"></div>
+			<div class="col-xs-2">所在学院</div>
+			<div class="col-xs-2" id="xueYuan"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">课程名称</div>
+			<div class="col-xs-4" id="courseName"></div>
+			<div class="col-xs-2">课程类别</div>
+			<div class="col-xs-2" id="courseType"></div>
+			<div class="col-xs-1">学时</div>
+			<div class="col-xs-1" id="courseTime"></div>		
+		</div>
+
+		<div class="row">
+			<div class="col-xs-4">是否新开课</div>
+			<div class="col-xs-8" id="openClass"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-3">教案完成情况</div>
+			<div class="col-xs-9">
+				<input type="radio" name="completT" value="1">全部完成
+				<input type="radio" name="completT" value="2">已完成1/2及以上
+				<input type="radio" name="completT" value="3">完成1/2以下
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">序号</div>
+			<div class="col-xs-4">问题描述</div>
+			<div class="col-xs-2" style="white-space:pre">评价</div>
+			<div class="col-xs-4">教案完成情况</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">1</div>
+			<div class="col-xs-4">课程及教师信息填写完整</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ1" value="0">有
+				<input type="radio" name="jiaoAnQ1" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express1">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">2</div>
+			<div class="col-xs-4">多位教师承担同一门课程教案是否雷同</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ2" value="0">有
+				<input type="radio" name="jiaoAnQ2" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express2">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">3</div>
+			<div class="col-xs-4">教学内容及要求</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ3" value="0">有
+				<input type="radio" name="jiaoAnQ3" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express3">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">4</div>
+			<div class="col-xs-4">教学重点、难点</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ4" value="0">有
+				<input type="radio" name="jiaoAnQ4" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express4">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">5</div>
+			<div class="col-xs-4">重点、难点的解决办法（教学设计）</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ5" value="0">有
+				<input type="radio" name="jiaoAnQ5" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express5">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">6</div>
+			<div class="col-xs-4">作业</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ6" value="0">有
+				<input type="radio" name="jiaoAnQ6" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express6">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">7</div>
+			<div class="col-xs-4">参考资料</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ7" value="0">有
+				<input type="radio" name="jiaoAnQ7" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express7">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">8</div>
+			<div class="col-xs-4">提前撰写教学后记</div>
+			<div class="col-xs-2">
+				<input type="radio" name="jiaoAnQ8" value="0">有
+				<input type="radio" name="jiaoAnQ8" value="1">否
+			</div>
+			<div class="col-xs-4">
+				<input type="text" id="express8">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-3">课程总体质量</div>
+			<div class="col-xs-9">
+				<input type="radio" name="jiaoAnQ9" value="0">好
+				<input type="radio" name="jiaoAnQ9" value="1">较好
+				<input type="radio" name="jiaoAnQ9" value="2">较差
+			</div>
+	 	</div>
+	 	<div class="row">
+			<div class="col-xs-2">
+				<input type="text" name="jiaoAnScore">较差
+			</div>
+		</div>
+		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div style="height: 50px;"></div>
+	</div>
+	<div class="rightinfo" id="jiangGao" style="display: none;">
+		<table class="tablelist">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>问题描述</th>
+					<th>评价</th>
+					<th>备注</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>1</td>
+				<td>讲稿内容完成程度（≥1/3）</td>
+				<td>
+					<input type="radio" name="jiangGaoQ1" value="0">A
+					<input type="radio" name="jiangGaoQ1" value="1">B
+				</td>
+				<td>
+					<input type="text" id="text1">
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>讲稿教学内容与教学大纲的相关性</td>
+				<td>
+					<input type="radio" name="jiangGaoQ2" value="0">A
+					<input type="radio" name="jiangGaoQ2" value="1">B
+				</td>
+				<td>
+					<input type="text" id="text2">
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>讲稿制作水平</td>
+				<td>
+					<input type="radio" name="jiangGaoQ3" value="0">A
+					<input type="radio" name="jiangGaoQ3" value="1">B
+				</td>
+				<td>
+					<input type="text" id="text3">
+				</td>
+			</tr>
+			<tr style="width: 100%;"><!-- 评价 -->
+			</tr>
+		</table>
+		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div style="height: 50px;"></div>
+	</div>
+	<div class="container" id="zhongQi" style="width:900px; display: none;">
+		<table class="tablelist">
+			<tr>
+				<td width="100px">答疑次数：</td>
+				<td><input type="text" id="qNumber"></td>
+			</tr>
+			<tr>
+				<td width="100px">作业布置次数：</td>
+				<td><input type="text" id="AssignNumber">
+				</td>
+			</tr>
+			<tr>
+				<td width="100px">作业批改次数：</td>
+				<td><input type="text" id="checkNumber"></td>
+			</tr>
+			<tr>
+				<td width="100px">出勤率</td>
+				<td><input type="text" id="attendNumber"></td>
+			</tr>
+			<tr>
+				<td width="100px">分数</td>
+				<td><input type="text" name="score"></td>
+			</tr>
+		</table>
+		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div style="height: 50px;"></div>
+	</div>
+	<div class="container" id="chuTi" style="width: 900px; display: none;">
+		<div class="row">
+			<div class="col-xs-1">序号</div>
+			<div class="col-xs-7">检查指标</div>
+			<div class="col-xs-4">评级</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">1</div>
+			<div class="col-xs-7">是否有AB卷、AB卷标准答案及评分标准、试卷审题说明、试卷批阅签字表、试卷分析报告、课程成绩构成申请表及审批程序</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ1" value="0">是
+				<input type="radio" name="chuTiQ1" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">2</div>
+			<div class="col-xs-7">是否使用标准模板</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ2" value="0">是
+				<input type="radio" name="chuTiQ2" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">3</div>
+			<div class="col-xs-7">文字、插图是否工整、清楚</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ3" value="0">是
+				<input type="radio" name="chuTiQ3" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">4</div>
+			<div class="col-xs-7">题间是否留有合适的答题空位</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ4" value="0">是
+				<input type="radio" name="chuTiQ4" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">5</div>
+			<div class="col-xs-7">A、B卷的雷同率是否小于30%</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ5" value="0">是
+				<input type="radio" name="chuTiQ5" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">6</div>
+			<div class="col-xs-7">近三年试卷雷同率是否小于25%</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ6" value="0">是
+				<input type="radio" name="chuTiQ6" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">7</div>
+			<div class="col-xs-7">试题考查的内容是否紧扣课程教学大纲</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ7" value="0">是
+				<input type="radio" name="chuTiQ7" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">8</div>
+			<div class="col-xs-7">试题是否存在学术性错误</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ8" value="0">是
+				<input type="radio" name="chuTiQ8" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">9</div>
+			<div class="col-xs-7">试题量是否适中</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ9" value="0">是
+				<input type="radio" name="chuTiQ9" value="1">否
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-1">10</div>
+			<div class="col-xs-7">难易程度是否适中</div>
+			<div class="col-xs-4">
+				<input type="radio" name="chuTiQ10" value="0">是
+				<input type="radio" name="chuTiQ10" value="1">否
+			</div>
+		</div>
+		<div class="row" >
+			<div class="col-xs-3"style="height:100px">意见与建议</div>
+			<div class="col-xs-9"style="height:100px">
+				<input type="text" name="advice" style="height: 100px;">
+			</div>
+		</div>
+		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div style="height: 50px;"></div>
+	</div>
 	<div class="container" id="pingYue" style="width:900px; display: none;">
 		<div class="row">
 			<div class="col-xs-1">序号</div>
@@ -135,7 +446,9 @@
 			<div class="col-xs-9"style="height:100px">
 				<input type="text" name="advice" style="height: 100px;">
 			</div>
-	</div>
+		</div>
+		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div style="height: 50px;"></div>
 	</div>
 
 
@@ -191,7 +504,8 @@
 			<input type="text" id="advice" style="height: 100px; size: 300px;">
 		</div>
 	</div>
-
+	<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" align="center" value="提交" style="width: 20%;"></div>
+	<div style="height: 50px;"></div>
 
 
 
