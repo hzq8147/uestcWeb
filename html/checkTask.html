@@ -86,6 +86,9 @@
  	</div>
 	<div class="container" id="jiaoAn" style="width:900px;display: none;">
 		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">教案检查</div>
+		</div>
+		<div class="row" style="margin-top: 3px;">
 			<div class="col-xs-2">教师姓名</div>
 			<div class="col-xs-2" id="teacherName"></div>
 			<div class="col-xs-2">职称</div>
@@ -104,14 +107,17 @@
 
 		<div class="row">
 			<div class="col-xs-4">是否新开课</div>
-			<div class="col-xs-8" id="openClass"></div>
+			<div class="col-xs-8">
+				<input type="radio" name="openClass" value="0">是
+				<input type="radio" name="openClass" value="1">否
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-3">教案完成情况</div>
 			<div class="col-xs-9">
-				<input type="radio" name="completT" value="1">全部完成
-				<input type="radio" name="completT" value="2">已完成1/2及以上
-				<input type="radio" name="completT" value="3">完成1/2以下
+				<input type="radio" name="completT" value="0">全部完成
+				<input type="radio" name="completT" value="1">已完成1/2及以上
+				<input type="radio" name="completT" value="2">完成1/2以下
 			</div>
 		</div>
 		<div class="row">
@@ -216,19 +222,26 @@
 				<input type="radio" name="jiaoAnQ9" value="2">较差
 			</div>
 	 	</div>
-	 	<div class="row">
+	 	<div class="row" style="border: none;">
 			<div class="col-xs-1">
 				<input>评分：
 			</div>
 			<div class="col-xs-1">
-				<input type="text" name="jiaoAnScore" style="width: 100%;height: 100%;">
+				<input type="text" name="jiaoAnScore" style="width: 100%;height: 100%; font-size: larger;">
 			</div>
 		</div>
-		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="jiaoAnSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 		<div style="height: 50px;"></div>
 	</div>
+
+
 	<div class="rightinfo" id="jiangGao" style="display: none;">
-		<table class="tablelist">
+		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">讲稿检查</div>
+		</div>
+		<table class="tablelist" style="margin-top: 3px;">
 			<thead>
 				<tr>
 					<th>序号</th>
@@ -245,7 +258,7 @@
 					<input type="radio" name="jiangGaoQ1" value="1">B
 				</td>
 				<td>
-					<input type="text" id="text1" style="width: 100%;height: 100%;">
+					<input type="text" id="text1" style="width: 100%;height: 100%;font-size: larger;">
 				</td>
 			</tr>
 			<tr>
@@ -256,7 +269,7 @@
 					<input type="radio" name="jiangGaoQ2" value="1">B
 				</td>
 				<td>
-					<input type="text" id="text2" style="width: 100%;height: 100%;">
+					<input type="text" id="text2" style="width: 100%;height: 100%;font-size: larger;">
 				</td>
 			</tr>
 			<tr>
@@ -267,44 +280,69 @@
 					<input type="radio" name="jiangGaoQ3" value="1">B
 				</td>
 				<td>
-					<input type="text" id="text3" style="width: 100%;height: 100%;">
+					<input type="text" id="text3" style="width: 100%;height: 100%;font-size: larger;">
 				</td>
 			</tr>
-			<tr style="width: 100%;"><!-- 评价 -->
-			</tr>
 		</table>
-		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div class="row" style="margin-top: 2px;">
+			<div class="col-xs-1" style="height: 20px;">
+				评分：
+			</div>
+			<div class="col-xs-1" style="height: 20px;">
+				<input type="text" id="jiangGaoScore" style="height: 100%;border-bottom: 1px solid;font-size: larger;">
+			</div>
+		</div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="jiangGaoSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 		<div style="height: 50px;"></div>
 	</div>
+
+
 	<div class="container" id="zhongQi" style="width:900px; display: none;">
-		<table class="tablelist">
+		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">中期教学检查</div>
+		</div>
+		<table class="tablelist" style="margin-top: 3px;">
 			<tr>
 				<td width="100px">答疑次数：</td>
-				<td><input type="text" id="qNumber" style="width: 100%;height: 100%;"></td>
+				<td><input type="text" id="qNumber" style="width: 100%;height: 100%;font-size: larger;"></td>
 			</tr>
 			<tr>
 				<td width="100px">作业布置次数：</td>
-				<td><input type="text" id="AssignNumber" style="width: 100%;height: 100%;">
+				<td><input type="text" id="AssignNumber" style="width: 100%;height: 100%;font-size: larger;">
 				</td>
 			</tr>
 			<tr>
 				<td width="100px">作业批改次数：</td>
-				<td><input type="text" id="checkNumber" style="width: 100%;height: 100%;"></td>
+				<td><input type="text" id="checkNumber" style="width: 100%;height: 100%;font-size: larger;"></td>
 			</tr>
 			<tr>
 				<td width="100px">出勤率</td>
-				<td><input type="text" id="attendNumber" style="width: 100%;height: 100%;"></td>
+				<td><input type="text" id="attendNumber" style="width: 100%;height: 100%;font-size: larger;"></td>
 			</tr>
-			<tr>
-				<td width="100px">分数</td>
-				<td><input type="text" name="score" style="width: 100%;height: 100%;"></td>
-			</tr>
+			
 		</table>
-		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div class="row" style="margin-left: 2px;">
+			<div class="col-xs-1">
+				<input>评分：
+			</div>
+			<div class="col-xs-1">
+				<input type="text" name="zhongQiScore" style="width: 100%;height: 100%;font-size: larger;">
+			</div>
+		</div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="zhongQiSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 		<div style="height: 50px;"></div>
 	</div>
+
+
 	<div class="container" id="chuTi" style="width: 900px; display: none;">
 		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">试卷出题检查</div>
+		</div>
+		<div class="row" style="margin-top: 3px;">
 			<div class="col-xs-1">序号</div>
 			<div class="col-xs-7">检查指标</div>
 			<div class="col-xs-4">评级</div>
@@ -392,14 +430,29 @@
 		<div class="row" >
 			<div class="col-xs-3"style="height:100px">意见与建议</div>
 			<div class="col-xs-9"style="height:100px">
-				<textarea id="advice" style="font-size: larger; width: 100%;height: 100%;"></textarea>
+				<textarea id="chuTiAdvice" style="font-size: larger; width: 100%;height: 100%;"></textarea>
 			</div>
 		</div>
-		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div class="row">
+			<div class="col-xs-1">
+				<input>评分：
+			</div>
+			<div class="col-xs-1">
+				<input type="text" name="chuTiScore" style="width: 100%;height: 100%; font-size: larger;">
+			</div>
+		</div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="chuTiSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 		<div style="height: 50px;"></div>
 	</div>
+
+
 	<div class="container" id="pingYue" style="width:900px; display: none;">
 		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">试卷评阅检查</div>
+		</div>
+		<div class="row" style="margin-top: 3px;">
 			<div class="col-xs-1">序号</div>
 			<div class="col-xs-7">检查指标</div>
 			<div class="col-xs-4">评级</div>
@@ -447,16 +500,29 @@
 		<div class="row" >
 			<div class="col-xs-3"style="height:100px">意见与建议</div>
 			<div class="col-xs-9"style="height:100px">
-				<textarea id="advice" style="font-size: larger; width: 100%;height: 100%;"></textarea> 
+				<textarea id="pingYueAdvice" style="font-size: larger; width: 100%;height: 100%;"></textarea> 
 			</div>
 		</div>
-		<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" value="提交" align="center" style="width: 20%;"></div>
+		<div class="row">
+			<div class="col-xs-1">
+				<input>评分：
+			</div>
+			<div class="col-xs-1">
+				<input type="text" name="pingYueScore" style="width: 100%;height: 100%; font-size: larger;">
+			</div>
+		</div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="pingYueSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 		<div style="height: 50px;"></div>
 	</div>
 
 
 	<div class="container" id="fenXi" style="width: 900px;display: none;">
 		<div class="row">
+			<div class="col-xs-12" style="background-color: lightgray; font-size: larger;padding-top: 5px;height: 30px;">试卷分析报告检查</div>
+		</div>
+		<div class="row" style="margin-top: 3px;">
 			<div class="col-xs-1">序号</div>
 			<div class="col-xs-7">检查指标</div>
 			<div class="col-xs-4">评级</div>
@@ -504,10 +570,20 @@
 	<div class="row" >
 		<div class="col-xs-3"style="height:100px">意见与建议</div>
 		<div class="col-xs-9"style="height:100px">
-			<textarea id="advice" style="font-size: larger; width: 100%;height: 100%;"></textarea>
+			<textarea id="fenXiAdvice" style="font-size: larger; width: 100%;height: 100%;"></textarea>
 		</div>
 	</div>
-	<div align="center" style="margin-top: 20px;"><input type="button" id="submit" class="loginbtn" align="center" value="提交" style="width: 20%;"></div>
+	<div class="row">
+			<div class="col-xs-1">
+				<input>评分：
+			</div>
+			<div class="col-xs-1">
+				<input type="text" name="fenXiScore" style="width: 100%;height: 100%; font-size: larger;">
+			</div>
+		</div>
+	<div align="center" style="margin-top: 20px;">
+		<button id="fenXiSubmit" type="button" class="btn btn-primary">提交</button>
+	</div>
 	<div style="height: 50px;"></div>
 
 
