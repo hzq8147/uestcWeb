@@ -1,4 +1,4 @@
-const url="http://127.0.0.1:8080/uestcTMP";
+const url="http://101.132.37.10:8080/uestcTMP";
 $(function(){
 	
 	var fileurl=url+'/uploadLessonPlan';
