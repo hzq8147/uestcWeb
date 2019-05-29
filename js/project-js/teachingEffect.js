@@ -71,7 +71,6 @@ $(function(){
 		var selected=$('#term_select').val();
 		changeCourse(selected);
 
-		anyChange();
 	})
 	function changeCourse(selected){
 		//选课下拉菜单变更时
@@ -88,27 +87,4 @@ $(function(){
 		})
 		
 	}
-	function anyChange(){
-		//三个下拉菜单任意change都会触发
-		var term=$('#term_select').val();
-		var courseName=$('#course_select').val();
-		var featureSel=$('#feature_select').val();
-		console.log(featureSel);
-		var courseId;
-		courseList.forEach((item,index)=>{
-			if (item.term==term && item.name==courseName){
-				courseId=item.courseId;
-				console.log(courseId);
-			}
-		})
-		if (term.length>0 && courseName.length>0){
-			//选中某课程
-			mainControl(courseId,featureSel);
-		}
-	}
-	$("#course_select").change(function(){
-		anyChange();
-	})
-	$("#feature_select").change(function(){
-		anyChange();
-	})
+})
