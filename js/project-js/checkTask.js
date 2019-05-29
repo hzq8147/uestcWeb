@@ -370,12 +370,6 @@ $(function(){
 		$('#fenXi').hide();
 		$('#Nothing').hide();
 
-		getJiaoAnInfo(courseId);
-		$('#jiaoAnSubmit').click(function(){
-			submitJiaoAnIndex(courseId);
-		})
-	}
-	function getJiaoAnInfo(courseId){
 		var obj={
 			'courseId':courseId
 		}
@@ -397,16 +391,25 @@ $(function(){
 				// document.getElementById("courseType").value = infoObj.result.fenLei;
 				// document.getElementById("courseTime").value = infoObj.result.time;
 
-				$("#teacherName").val(infoObj.teacherName);
-				$("#zhiCheng").val(infoObj.zhiCheng);
-				$("#xueYuan").val(infoObj.xueYuan);
-				$("#courseName").val(infoObj.courseName);
-				$("#courseType").val(infoObj.result.fenLei);
-				$("#courseTime").val(infoObj.result.time);
-					// showJiaoAnInfo(getObj);
+				$("#teacherName").html(infoObj.teacherName);
+				$("#zhiCheng").html(infoObj.zhiCheng);
+				$("#xueYuan").html(infoObj.xueYuan);
+				$("#courseName").html(infoObj.courseName);
+				$("#courseType").html(infoObj.result.fenLei);
+				$("#courseTime").html(infoObj.result.time);
 			}
 		})
+					// showJiaoAnInfo(getObj);
+		// getJiaoAnInfo(courseId);
+		$('#jiaoAnSubmit').click(function(){
+			submitJiaoAnIndex(courseId);
+		})
 	}
+	// function getJiaoAnInfo(courseId){
+		
+	// 		}
+	// 	})
+	// }
 	// function showJiaoAnInfo(infoObj){
 		
 	// }
