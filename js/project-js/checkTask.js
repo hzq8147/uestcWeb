@@ -167,18 +167,18 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"no1Answer":$('#fenXiQ1').val(),
-			"no2Answer":$('#fenXiQ2').val(),
-			"no3Answer":$('#fenXiQ3').val(),
-			"no4Answer":$('#fenXiQ4').val(),
-			"no5Answer":$('#fenXiQ5').val(),
+			"no1Answer":$('input[name="fenXiQ1"]:checked').val(),
+			"no2Answer":$('input[name="fenXiQ2"]:checked').val(),
+			"no3Answer":$('input[name="fenXiQ3"]:checked').val(),
+			"no4Answer":$('input[name="fenXiQ4"]:checked').val(),
+			"no5Answer":$('input[name="fenXiQ5"]:checked').val(),
 			"advice":$('#fenXiAdvice').val(),
 			"score":$('#fenXiScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#fenXiQ1").val()!=="" && $("#fenXiQ2").val()!=="" && $("#fenXiQ3").val()!=="" && $("#fenXiQ4").val()!=="" && $("#fenXiQ5").val()!=="" && $("#fenXiAdvice").val()!=="" && $("#fenXiScore").val()!=="")
+		if($('input[name="fenXiQ1"]:checked').val()!=="" && $('input[name="fenXiQ2"]:checked').val()!=="" && $('input[name="fenXiQ3"]:checked').val()!=="" && $('input[name="fenXiQ4"]:checked').val()!=="" && $('input[name="fenXiQ5"]:checked').val()!=="" && $("#fenXiAdvice").val()!=="" && $("#fenXiScore").val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
@@ -202,6 +202,7 @@ $(function(){
 
 	}
 	
+
 	function showPingYuePaper(courseId){
 		$('#pingYue').show();
 		$('#jiaoAn').hide();
@@ -219,18 +220,18 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"no1Answer":$('#pingYueQ1').val(),
-			"no2Answer":$('#pingYueQ2').val(),
-			"no3Answer":$('#pingYueQ3').val(),
-			"no4Answer":$('#pingYueQ4').val(),
-			"no5Answer":$('#pingYueQ5').val(),
+			"no1Answer":$('input[name="pingYueQ1"]:checked').val(),
+			"no2Answer":$('input[name="pingYueQ2"]:checked').val(),
+			"no3Answer":$('input[name="pingYueQ3"]:checked').val(),
+			"no4Answer":$('input[name="pingYueQ4"]:checked').val(),
+			"no5Answer":$('input[name="pingYueQ5"]:checked').val(),
 			"advice":$('#pingYueAdvice').val(),
 			"score":$('#pingYueScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#pingYueQ1").val()!=="" && $("#pingYueQ2").val()!=="" && $("#pingYueQ3").val()!=="" && $("#pingYueQ4").val()!=="" && $("#pingYueQ5").val()!=="" && $("#pingYueAdvice").val()!=="" && $("#pingYueScore").val()!=="")
+		if($('input[name="pingYueQ1"]:checked').val()!=="" && $('input[name="pingYueQ2"]:checked').val()!=="" && $('input[name="pingYueQ3"]:checked').val()!=="" && $('input[name="pingYueQ4"]:checked').val()!=="" && $('input[name="pingYueQ5"]:checked').val()!=="" && $("#pingYueAdvice").val()!=="" && $("#pingYueScore").val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
@@ -271,23 +272,23 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"no1Answer":$('#chuTiQ1').val(),
-			"no2Answer":$('#chuTiQ2').val(),
-			"no3Answer":$('#chuTiQ3').val(),
-			"no4Answer":$('#chuTiQ4').val(),
-			"no5Answer":$('#chuTiQ5').val(),
-			"no6Answer":$('#chuTiQ5').val(),
-			"no7Answer":$('#chuTiQ5').val(),
-			"no8Answer":$('#chuTiQ5').val(),
-			"no9Answer":$('#chuTiQ5').val(),
-			"no10Answer":$('#chuTiQ5').val(),
+			"no1Answer":$('input[name="chuTiQ1"]:checked').val(),
+			"no2Answer":$('input[name="chuTiQ2"]:checked').val(),
+			"no3Answer":$('input[name="chuTiQ3"]:checked').val(),
+			"no4Answer":$('input[name="chuTiQ4"]:checked').val(),
+			"no5Answer":$('input[name="chuTiQ5"]:checked').val(),
+			"no6Answer":$('input[name="chuTiQ6"]:checked').val(),
+			"no7Answer":$('input[name="chuTiQ7"]:checked').val(),
+			"no8Answer":$('input[name="chuTiQ8"]:checked').val(),
+			"no9Answer":$('input[name="chuTiQ9"]:checked').val(),
+			"no10Answer":$('input[name="chuTiQ10"]:checked').val(),
 			"advice":$('#chuTiAdvice').val(),
 			"score":$('#chuTiScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#chuTiQ1").val()!=="" && $("#chuTiQ2").val()!=="" && $("#chuTiQ3").val()!=="" && $("#chuTiQ4").val()!=="" && $("#chuTiQ5").val()!=="" && $("#chuTiQ6").val()!=="" && $("#chuTiQ7").val()!=="" && $("#chuTiQ8").val()!=="" && $("#chuTiQ9").val()!=="" && $("#chuTiQ10").val()!=="" && $("#chuTiAdvice").val()!=="" && $("#chuTiScore").val()!=="")
+		if($('input[name="chuTiQ1"]:checked').val()!=="" && $('input[name="chuTiQ2"]:checked').val()!=="" && $('input[name="chuTiQ3"]:checked').val()!=="" && $('input[name="chuTiQ4"]:checked').val()!=="" && $('input[name="chuTiQ5"]:checked').val()!=="" && $('input[name="chuTiQ6"]:checked').val()!=="" && $('input[name="chuTiQ7"]:checked').val()!=="" && $('input[name="chuTiQ8"]:checked').val()!=="" && $('input[name="chuTiQ9"]:checked').val()!=="" && $('input[name="chuTiQ10"]:checked').val()!=="" && $("#chuTiAdvice").val()!=="" && $("#chuTiScore").val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
@@ -328,16 +329,16 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"dayiAnswer":$('#chuTiQ1').val(),
-			"buzhiAnswer":$('#chuTiQ2').val(),
-			"pigaiAnswer":$('#chuTiQ3').val(),
-			"chuqiAnswer":$('#chuTiQ4').val(),
-			"score":$('#chuTiScore').val()
+			"dayiAnswer":$('#zhongQiQ1').val(),
+			"buzhiAnswer":$('#zhongQiQ2').val(),
+			"pigaiAnswer":$('#zhongQiQ3').val(),
+			"chuqinAnswer":$('#zhongQiQ4').val(),
+			"score":$('#zhongQiScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#chuTiQ1").val()!=="" && $("#chuTiQ2").val()!=="" && $("#chuTiQ3").val()!=="" && $("#chuTiQ4").val()!=="" && $("#chuTiQ5").val()!=="" && $("#chuTiQ6").val()!=="" && $("#chuTiQ7").val()!=="" && $("#chuTiQ8").val()!=="" && $("#chuTiQ9").val()!=="" && $("#chuTiQ10").val()!=="" && $("#chuTiAdvice").val()!=="" && $("#chuTiScore").val()!=="")
+		if($("#zhongQiQ1").val()!=="" && $("#zhongQiQ2").val()!=="" && $("#zhongQiQ3").val()!=="" && $("#zhongQiQ4").val()!=="" && $("#zhongQiScore").val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
@@ -417,40 +418,43 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"xinkeAnswer":$('#openClass').val(),
-			"jiaoanAnswer":$('#completT').val(),
-			"no1Answer":$('#jiaoAnQ1').val(),
+			"xinkeAnswer": $('input[name="openClass"]:checked').val(),
+			"jiaoanAnswer":$('input[name="completT"]:checked').val(),
+			"no1Answer":$('input[name="jiaoAnQ1"]:checked').val(),
 			"no1Text":$('#express1').val(),
-			"no2Answer":$('#jiaoAnQ2').val(),
+			"no2Answer":$('input[name="jiaoAnQ2"]:checked').val(),
 			"no2Text":$('#express2').val(),
-			"no3Answer":$('#jiaoAnQ3').val(),
+			"no3Answer":$('input[name="jiaoAnQ3"]:checked').val(),
 			"no3Text":$('#express3').val(),
-			"no4Answer":$('#jiaoAnQ4').val(),
+			"no4Answer":$('input[name="jiaoAnQ4"]:checked').val(),
 			"no4Text":$('#express4').val(),
-			"no5Answer":$('#jiaoAnQ5').val(),
+			"no5Answer":$('input[name="jiaoAnQ5"]:checked').val(),
 			"no5Text":$('#express5').val(),
-			"no6Answer":$('#jiaoAnQ6').val(),
+			"no6Answer":$('input[name="jiaoAnQ6"]:checked').val(),
 			"no6Text":$('#express6').val(),
-			"no7Answer":$('#jiaoAnQ7').val(),
+			"no7Answer":$('input[name="jiaoAnQ7"]:checked').val(),
 			"no7Text":$('#express7').val(),
-			"no8Answer":$('#jiaoAnQ8').val(),
+			"no8Answer":$('input[name="jiaoAnQ8"]:checked').val(),
 			"no8Text":$('#express8').val(),
-			"zongtiAnswer":$('#jiaoAnQ9').val(),
+			"zongtiAnswer":$('input[name="jiaoAnQ9"]:checked').val(),
 			"score":$('#jiaoAnScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#openClass").val()!=="" && $("#completT").val()!=="" && $("#jiaoAnQ1").val()!=="" && $("#express1").val()!=="" && $("#jiaoAnQ2").val()!=="" && $("#express2").val()!==""  && $("#jiaoAnQ3").val()!=="" && $("#express3").val()!=="" && $("#jiaoAnQ4").val()!=="" && $("#express4").val()!=="" && $("#jiaoAnQ5").val()!=="" && $("#express5").val()!=="" && $("#jiaoAnQ6").val()!=="" && $("#express6").val()!=="" && $("#jiaoAnQ7").val()!=="" && $("#express7").val()!=="" && $("#jiaoAnQ8").val()!=="" && $("#express8").val()!=="" && $("#jiaoAnQ9").val()!=="" && $("#jiaoAnScore").val()!=="")
+		if($('input[name="openClass"]:checked').val()!=="" && $('input[name="completT"]:checked').val()!=="" && $('input[name="jiaoAnQ1"]:checked').val()!=="" && $('input[name="jiaoAnQ2"]:checked').val()!=="" && $('input[name="jiaoAnQ3"]:checked').val()!=="" && $('input[name="jiaoAnQ4"]:checked').val()!=="" &&$('input[name="jiaoAnQ5"]:checked').val()!=="" && $('input[name="jiaoAnQ6"]:checked').val()!=="" && $('input[name="jiaoAnQ7"]:checked').val()!=="" && $('input[name="jiaoAnQ8"]:checked').val()!=="" && $('input[name="jiaoAnQ9"]:checked').val()!=="" && $("#jiaoAnScore").val()!=="")
 	         {
+
 	              $.ajax({
 					type:'POST',
 					url:url+"/postJiaoAnResult",
 					dataType:"text",
 					data:JSON.stringify(rej),
+
 					success:function(data){
 						console.log(data);
 						var obj=JSON.parse(data);
+						console.log(obj);
 						alert("问卷提交成功！")
 						 	
 						},
@@ -481,18 +485,18 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"no1Answer":$('#jiangGaoQ1').val(),
+			"no1Answer":$('input[name="jiangGaoQ1"]:checked').val(),
 			"no1Text":$('#text1').val(),
-			"no2Answer":$('#jiangGaoQ2').val(),
+			"no2Answer":$('input[name="jiangGaoQ2"]:checked').val(),
 			"no2Text":$('#text2').val(),
-			"no3Answer":$('#jiangGaoQ3').val(),
+			"no3Answer":$('input[name="jiangGaoQ3"]:checked').val(),
 			"no3Text":$('#text3').val(),
 			"score":$('#jiangGaoScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#jiangGaoQ1").val()!=="" && $("#text1").val()!=="" && $("#jiangGaoQ2").val()!=="" && $("#text2").val()!=="" && $("#jiangGaoQ3").val()!=="" && $("#text3").val()!=="")
+		if($('input[name="jiangGaoQ1"]:checked').val()!=="" && $('input[name="jiangGaoQ2"]:checked').val()!=="" && $('input[name="jiangGaoQ3"]:checked').val()!=="" && $('#jiangGaoScore').val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
