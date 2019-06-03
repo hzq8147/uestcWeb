@@ -329,16 +329,16 @@ $(function(){
 		console.log(courseId);
 		var rej = {
 			"courseId":courseId,
-			"dayiAnswer":$('#zhongQiQ1').val(),
-			"buzhiAnswer":$('#zhongQiQ2').val(),
-			"pigaiAnswer":$('#zhongQiQ3').val(),
-			"chuqinAnswer":$('#zhongQiQ4').val(),
+			"dayiAnswer":$('#qNumber').val(),
+			"buzhiAnswer":$('#assignNumber').val(),
+			"pigaiAnswer":$('#checkNumber').val(),
+			"chuqinAnswer":$('#attendNumber').val(),
 			"score":$('#zhongQiScore').val()
 		}
 		var printrej=JSON.stringify(rej);
 		//打印rej对象
 		console.log(printrej);
-		if($("#zhongQiQ1").val()!=="" && $("#zhongQiQ2").val()!=="" && $("#zhongQiQ3").val()!=="" && $("#zhongQiQ4").val()!=="" && $("#zhongQiScore").val()!=="")
+		if($('#qNumber').val()!=="" && $('#assignNumber').val()!=="" && $('#checkNumber').val()!=="" && $('#attendNumber').val()!=="" && $("#zhongQiScore").val()!=="")
 	         {
 	              $.ajax({
 					type:'POST',
